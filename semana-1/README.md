@@ -23,3 +23,10 @@
   --mixed - desfaz commit, tira do staging, mantém arquivos
   --hard - desfaz commit e alterações dos arquivos (perigoso)
 - git checkout (se resume a "quero ir para...")
+- git restore (recupera arquivo ex: git restore --source=<hash> arquivo.js)
+
+### Lidando com conflitos
+
+- Conflitos podem aparecer quando existir mais de um desenvolvedor trabalhando no projeto.
+- No servidor o repositório pode estar atualizado de uma forma, enquanto no seu computador o código está salvo de outra. Será necessário então atualizar com a versão do servidor através do git pull.
+- Isso pode gerar conflito, basta corrigir o conflito no arquivo, add e commitar ao servidor novamente.
