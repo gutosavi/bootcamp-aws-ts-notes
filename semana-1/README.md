@@ -19,11 +19,11 @@
 - git show _valor hash aqui_ (fala tudo o que foi feito no commit em específico)
 
 - git reset (se resume a "quero mover minha branch para trás/para outro commit");
-  --soft - desfaz commit, mantém staging
-  --mixed - desfaz commit, tira do staging, mantém arquivos
-  --hard - desfaz commit e alterações dos arquivos (perigoso)
+  - --soft - desfaz commit, mantém staging
+  - --mixed - desfaz commit, tira do staging, mantém arquivos
+  - --hard - desfaz commit e alterações dos arquivos (perigoso)
 - git checkout (se resume a "quero ir para...")
-- git restore (recupera arquivo ex: git restore --source=<hash> arquivo.js)
+- git restore (recupera arquivo ex: git restore --source=_hash aqui_ arquivo.js)
 
 ### Lidando com conflitos
 
