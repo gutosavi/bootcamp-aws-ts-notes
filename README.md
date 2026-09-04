@@ -36,3 +36,42 @@ bootcamp-aws-ts-notes/
 ├── semana-4/       # Finalização do Desafio 1, Prática de Entrevista & Encerramento
 └── README.md       # Documentação principal do repositório
 ```
+
+## ⏱️ Cronograma de Acompanhamento (Sprints)
+
+Sprint 1: Fundamentos e Nivelamento
+
+- [ ] Configuração do ambiente e Onboarding
+- [ ] Fundamentos do SCRUM Agile & Git/GitHub
+- [ ] Lógica de Programação e Estrutura de Dados com JavaScript
+- [ ] TypeScript do básico ao avançado & Design Patterns
+- [ ] Arquitetura de Software & Protocolo HTTP
+- [ ] Acreditação Sprint 1
+
+## 💻 Como rodar os exercícios localmente
+
+**1. Clone o repositório:**
+
+```bash
+git clone https://github.com/seu-usuario/bootcamp-aws-ts-notes.git
+```
+
+**2. Acesse a pasta do projeto:**
+
+```bash
+cd bootcamp-aws-ts-notes
+```
+
+**3. Instale as dependências de desenvolvimento:**
+
+```bash
+npm install
+```
+
+**4. Execute um arquivo TypeScript específico (Exemplo da Semana 1):**
+
+```bash
+npx tsx semana-1/teste.ts
+```
+
+**Desenvolvido durante o AI/R Fellowship 2026.**
