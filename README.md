@@ -37,6 +37,8 @@ bootcamp-aws-ts-notes/
 └── README.md       # Documentação principal do repositório
 ```
 
+---
+
 ## ⏱️ Cronograma de Acompanhamento (Sprints)
 
 Sprint 1: Fundamentos e Nivelamento
@@ -47,6 +49,8 @@ Sprint 1: Fundamentos e Nivelamento
 - [ ] TypeScript do básico ao avançado & Design Patterns
 - [ ] Arquitetura de Software & Protocolo HTTP
 - [ ] Acreditação Sprint 1
+
+---
 
 ## 💻 Como rodar os exercícios localmente
 
