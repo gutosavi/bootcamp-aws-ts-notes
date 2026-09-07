@@ -1,4 +1,4 @@
-# Anotações teóricas sobre a semana 1
+# Guia Geral da Semana 1
 
 Sprint 1: Fundamentos e Nivelamento
 
