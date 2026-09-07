@@ -44,7 +44,7 @@ bootcamp-aws-ts-notes/
 Sprint 1: Fundamentos e Nivelamento
 
 - [ ] Configuração do ambiente e Onboarding
-- [ ] Fundamentos do SCRUM Agile & Git/GitHub
+- [x] Fundamentos do SCRUM Agile & Git/GitHub
 - [ ] Lógica de Programação e Estrutura de Dados com JavaScript
 - [ ] TypeScript do básico ao avançado & Design Patterns
 - [ ] Arquitetura de Software & Protocolo HTTP
@@ -77,5 +77,7 @@ npm install
 ```bash
 npx tsx semana-1/teste.ts
 ```
+
+---
 
 **Desenvolvido durante o AI/R Fellowship 2026.**
