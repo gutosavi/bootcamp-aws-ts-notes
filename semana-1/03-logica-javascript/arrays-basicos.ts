@@ -112,3 +112,26 @@ for (let prop in dadosCompletos) {
   // percorre as propriedades de um objeto
   console.log(dadosCompletos[prop as keyof DadosPessoa]);
 }
+
+/* Exercícios práticos - Sintaxe e iteração */
+
+const notas = [4.5, 8.0, 6.5, 9.0, 3.0, 7.5];
+
+const notasFiltradas = notas.filter((item) => item >= 7);
+console.log(`Aprovados: ${notasFiltradas.join(", ")}`);
+
+const precos = [10, 20, 30, 40];
+
+const acrescimoDe10 = precos.map((item) => (item += item * 1.1));
+console.log(acrescimoDe10);
+
+const tecnologias = ["Git", "TypeScript", "Node", "React"];
+
+const isInArray = (array: Array<string>, nomeTecnologia: string) => {
+  if (array.includes(nomeTecnologia)) {
+    console.log(`A tecnologia ${nomeTecnologia} foi encontrada.`);
+  } else {
+    console.log(`A tecnologia ${nomeTecnologia} não foi encontrada.`);
+  }
+};
+isInArray(tecnologias, "Python");
