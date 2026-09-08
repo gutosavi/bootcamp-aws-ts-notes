@@ -1,5 +1,5 @@
 const validarAcesso = (idade: number): boolean => idade >= 18;
-console.log(validarAcesso(18));
+// console.log(validarAcesso(18));
 
 /* ---- */
 const n1 = 8;
@@ -15,7 +15,7 @@ const calculaMedia = (n1: number, n2: number): string => {
     return "Você está em recuperação.";
   }
 };
-console.log(calculaMedia(n1, n2));
+// console.log(calculaMedia(n1, n2));
 
 // switch case
 const checkWeekDay = (number: number): string => {
@@ -38,7 +38,7 @@ const checkWeekDay = (number: number): string => {
       return "Digite um número de 0 a 6";
   }
 };
-console.log(checkWeekDay(3));
+// console.log(checkWeekDay(3));
 
 // um ponto de atenção: o switch compara valor e tipo
 const checkTypeof = (value: any) => {
@@ -56,7 +56,7 @@ const checkTypeof = (value: any) => {
       console.log("Outro tipo");
   }
 };
-checkTypeof(null);
+// checkTypeof(null);
 
 /* ---- */
 const multiplicationTable = (number: number): void => {
@@ -64,7 +64,7 @@ const multiplicationTable = (number: number): void => {
     console.log(`${number} x ${i} = ${number * i}`);
   }
 };
-multiplicationTable(10);
+// multiplicationTable(10);
 
 // você pode utilizar o loop while quando não souber quando o loop irá terminar
 const rollDice = (): void => {
@@ -82,11 +82,11 @@ const rollDice = (): void => {
   console.log(d1, d2);
   console.log(`Os dados foram jogados ${contador} vezes.`);
 };
-rollDice();
+// rollDice();
 
 /* ---- */
 const isPair = (number: number): boolean => number % 2 === 0;
-console.log(isPair(3));
+//console.log(isPair(3));
 
 /* ---- */
 const isPairFunction = (max: number, min: number): void => {
@@ -102,7 +102,7 @@ const isPairFunction = (max: number, min: number): void => {
   console.log(`O número ${number} é par.`);
   console.log("Quantidade de tentativas:", contador);
 };
-isPairFunction(1, 20);
+// isPairFunction(1, 20);
 
 /* ---- */
 const rollDice2 = (): void => {
@@ -124,7 +124,7 @@ const rollDice2 = (): void => {
 
   console.log(`Total de tentativas: ${totalTentativas}`);
 };
-rollDice2();
+// rollDice2();
 
 /* ---- */
 const ehMultiploDe10 = (): void => {
@@ -141,9 +141,9 @@ const ehMultiploDe10 = (): void => {
     }
   }
 };
-ehMultiploDe10();
+//ehMultiploDe10();
 
-/* Exercícios práticos */
+/* Exercícios práticos - Controle de decisão e Condicionais */
 
 const classificarFaixaEtaria = (idade: number): string => {
   if (idade < 18) {
@@ -154,7 +154,7 @@ const classificarFaixaEtaria = (idade: number): string => {
     return "Idoso";
   }
 };
-console.log(classificarFaixaEtaria(20));
+// console.log(classificarFaixaEtaria(20));
 
 /* ---- */
 
@@ -182,3 +182,29 @@ const validadorDeAcesso = (
   return "Acesso Liberado";
 };
 console.log(validadorDeAcesso(true, false));
+
+/* Exercícios práticos - Laços de repetição */
+
+for (let i = 0; i <= 10; i++) {
+  if (i % 2 === 0) {
+    console.log(`${i} é par`);
+  } else {
+    console.log(`${i} é impar`);
+  }
+}
+
+let somaTotal = 0;
+let contador = 0;
+
+while (contador <= 50) {
+  somaTotal += contador;
+  contador++;
+}
+console.log(somaTotal);
+
+const tabuadaDinamica = (number: number) => {
+  for (let i = 0; i <= 10; i++) {
+    console.log(`${number} x ${i} = ${number * i}`);
+  }
+};
+tabuadaDinamica(6);
