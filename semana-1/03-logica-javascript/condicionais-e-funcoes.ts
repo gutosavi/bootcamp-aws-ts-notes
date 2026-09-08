@@ -85,3 +85,19 @@ rollDice(2, 5);
 
 const isPair = (number: number): boolean => number % 2 === 0;
 console.log(isPair(3));
+
+const isPairFunction = (max: number, min: number): void => {
+  let number = Math.floor(Math.random() * (max - min + 1)) + min;
+  let contador = 1;
+
+  while (number % 2 === 1) {
+    console.log(`O número ${number} é impar.`);
+    contador++;
+    number = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  console.log(`O número ${number} é par.`);
+  console.log("Quantidade de tentativas:", contador);
+};
+
+isPairFunction(1, 20);
