@@ -38,3 +38,35 @@ Valores que o JS considera **false** ou **true** quando convertidos para boolean
 
 - **falsy**: false, 0, "" (string vazia), null, undefined, NaN
 - **truthy**: todos os outros (números diferentes de 0, strings não vazias, objetos, etc.)
+
+### Operadores de comparação
+
+== Igualdade (apenas valor)
+=== Igualdade (valor e tipo)
+!= Diferente (apenas valor)
+!== Diferente (valor e tipo)
+< Menor que
+<= Menor ou igual à
+
+> Maior que
+> = Maior ou igual à
+
+### Operadores lógicos
+
+**! - Negação**
+**&& - E**
+**|| - Ou**
+
+#### Tabela verdade
+
+| Expressões    | && (E) |  (Ou) |
+| ------------- | -----: | ----: |
+| false - false |  false | false |
+| false - true  |  false |  true |
+| true - false  |  false |  true |
+| true - true   |   true |  true |
+
+| Expressão | ! (Negação) |
+| --------- | ----------: |
+| false     |        true |
+| true      |       false |
