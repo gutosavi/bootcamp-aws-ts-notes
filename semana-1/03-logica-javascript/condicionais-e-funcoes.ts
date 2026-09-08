@@ -142,3 +142,43 @@ const ehMultiploDe10 = (): void => {
   }
 };
 ehMultiploDe10();
+
+/* Exercícios práticos */
+
+const classificarFaixaEtaria = (idade: number): string => {
+  if (idade < 18) {
+    return "Menor de Idade";
+  } else if (idade < 59) {
+    return "Adulto";
+  } else {
+    return "Idoso";
+  }
+};
+console.log(classificarFaixaEtaria(20));
+
+/* ---- */
+
+const calculadoraDesconto = (
+  valorCompra: number,
+  ehClienteVip: boolean,
+): number => {
+  if (ehClienteVip) {
+    return valorCompra - valorCompra * 0.2;
+  } else if (!ehClienteVip && valorCompra >= 200) {
+    return valorCompra - valorCompra * 0.1;
+  } else {
+    return valorCompra;
+  }
+};
+console.log(calculadoraDesconto(300, false));
+
+const validadorDeAcesso = (
+  usuarioAtivo: boolean,
+  possuiPermissao: boolean,
+): string => {
+  if (!usuarioAtivo) return "Usuário inativo";
+  if (!possuiPermissao) return "Acesso negado";
+
+  return "Acesso Liberado";
+};
+console.log(validadorDeAcesso(true, false));
