@@ -11,6 +11,8 @@ const showNames = (array: string[], addName: string): void => {
 };
 showNames(names, "Pedro");
 
+/* ---- */
+
 const diasDaSemana = [
   "Segunda-feira",
   "Terça-feira",
@@ -28,6 +30,8 @@ const checkWeekDay = (array: string[]) => {
 };
 checkWeekDay(diasDaSemana);
 
+/* ---- */
+
 const numeros: Array<unknown> = [
   10,
   10,
@@ -44,14 +48,67 @@ const numeros: Array<unknown> = [
   null,
 ];
 
-let soma = 0;
+const filteredNumbers = (array: Array<unknown>) => {
+  let soma = 0;
 
-for (let i = 0; i < numeros.length; i++) {
-  const item = numeros[i];
+  for (let i = 0; i < array.length; i++) {
+    const item = array[i];
 
-  if (!Number.isNaN(item) && typeof item === "number") {
-    soma += item;
+    if (!Number.isNaN(item) && typeof item === "number") {
+      soma += item;
+    }
   }
-}
 
-console.log(soma);
+  return soma;
+};
+console.log(filteredNumbers(numeros));
+
+/* ---- */
+
+type Veiculo = {
+  modelo: string;
+  ano: number;
+  km: number;
+  combustivel: "gasolina" | "alcool" | "flex";
+  litrosConsumidos: number;
+};
+
+const carro: Veiculo = {
+  modelo: "Uno",
+  ano: 2023,
+  km: 10000,
+  combustivel: "gasolina",
+  litrosConsumidos: 625,
+};
+
+console.log(
+  `O carro ${carro.modelo} fez em média de ${(carro.km / carro.litrosConsumidos).toFixed(2)} km/l de ${carro.combustivel}.`,
+);
+
+/* ---- */
+
+type DadosPessoa = {
+  nome: string;
+  sobrenome: string;
+  endereco: {};
+};
+
+const pessoa = {
+  nome: "João",
+  sobrenome: "Fagundes",
+};
+
+const endereco = {
+  rua: "Rua das Tulias",
+  numero: "302",
+};
+
+const dadosCompletos: DadosPessoa = {
+  ...pessoa,
+  endereco: { ...endereco },
+};
+
+for (let prop in dadosCompletos) {
+  // percorre as propriedades de um objeto
+  console.log(dadosCompletos[prop as keyof DadosPessoa]);
+}
