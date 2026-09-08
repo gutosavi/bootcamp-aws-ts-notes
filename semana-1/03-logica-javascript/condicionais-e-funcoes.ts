@@ -1,6 +1,7 @@
 const validarAcesso = (idade: number): boolean => idade >= 18;
 console.log(validarAcesso(18));
 
+/* ---- */
 const n1 = 8;
 const n2 = 0;
 
@@ -57,6 +58,7 @@ const checkTypeof = (value: any) => {
 };
 checkTypeof(null);
 
+/* ---- */
 const multiplicationTable = (number: number): void => {
   for (let i = 0; i <= 10; i++) {
     console.log(`${number} x ${i} = ${number * i}`);
@@ -65,7 +67,7 @@ const multiplicationTable = (number: number): void => {
 multiplicationTable(10);
 
 // você pode utilizar o loop while quando não souber quando o loop irá terminar
-const rollDice = (dado1: number, dado2: number): void => {
+const rollDice = (): void => {
   let contador = 1;
   let d1 = Math.floor(Math.random() * 6 + 1);
   let d2 = Math.floor(Math.random() * 6 + 1);
@@ -80,12 +82,13 @@ const rollDice = (dado1: number, dado2: number): void => {
   console.log(d1, d2);
   console.log(`Os dados foram jogados ${contador} vezes.`);
 };
+rollDice();
 
-rollDice(2, 5);
-
+/* ---- */
 const isPair = (number: number): boolean => number % 2 === 0;
 console.log(isPair(3));
 
+/* ---- */
 const isPairFunction = (max: number, min: number): void => {
   let number = Math.floor(Math.random() * (max - min + 1)) + min;
   let contador = 1;
@@ -99,5 +102,43 @@ const isPairFunction = (max: number, min: number): void => {
   console.log(`O número ${number} é par.`);
   console.log("Quantidade de tentativas:", contador);
 };
-
 isPairFunction(1, 20);
+
+/* ---- */
+const rollDice2 = (): void => {
+  let paresEncontrados = 0;
+  let totalTentativas = 0;
+
+  while (paresEncontrados < 10) {
+    let d1 = Math.floor(Math.random() * 6 + 1);
+    let d2 = Math.floor(Math.random() * 6 + 1);
+    let soma = d1 + d2;
+
+    totalTentativas++;
+
+    if (soma % 2 === 0) {
+      paresEncontrados++;
+      console.log(`Par número ${paresEncontrados}: ${d1} + ${d2} = ${soma}`);
+    }
+  }
+
+  console.log(`Total de tentativas: ${totalTentativas}`);
+};
+rollDice2();
+
+/* ---- */
+const ehMultiploDe10 = (): void => {
+  for (let i = 0; i <= 100; i++) {
+    if (i % 10 === 0) {
+      console.log(i);
+
+      let ramdomNumber = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+
+      if (ramdomNumber % 2 === 0) {
+        console.log(`Parei no múltiplo ${i}`);
+        break;
+      }
+    }
+  }
+};
+ehMultiploDe10();
