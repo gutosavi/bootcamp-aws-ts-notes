@@ -96,3 +96,36 @@ Laços permitem executar um determinado bloco de código repetidamente enquanto 
 
 - **for...of**
   Utilizado principalmente para percorrer valores de estruturas iteráveis, como arrays.
+
+### Arrays e Objetos
+
+Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabalhar com informações.
+
+- **Arrays**
+  São estruturas utilizadas para armazenar uma coleção de valores em uma única variável. Os elementos são organizados por índices, começando pelo 0. (Ex.: const frutas = ['maçã', 'banana', 'laranja'])
+  Os elementos podem ser acessados, alterados e adicionados:
+  - frutas[1] = 'uva';
+  - frutas.push('abacaxi');
+
+  **Métodos básicos**
+  - push() - adiciona um elemento ao final.
+  - pop() - remove o último elemento.
+  - shift() - remove o primeiro elemento.
+  - unshift() - adiciona um elemento no início.
+  - length - informa a quantidade de elementos.
+
+  Arrays também pode ser percorridos utilizando estruturas de repetição, como for, for...of e métodos específicos de arrays.
+
+- **Objetos**
+  Objetos são estruturas utilizadas para representar informações através de propriedades formadas por **chave** e **valor**.
+  Podemos acessar suas propriedades utilizando a notação de ponto ou colchetes:
+  - usuario.nome;
+  - usuario["idade"];
+
+  Também é possível alterar ou adicionar propriedades:
+  usuario.idade = 38;
+  usuario.email = 'gustavo@email.com'
+
+- **Objetos e Estruturas complexas**
+  Objetos podem conter diferentes tipos de dados, inclusive arrays e outros objetos.
+  Ex.: const usuario = { nome: "Gustavo", habilidades: ["HTML", "CSS", "JavaScript"], endereco: { cidade: "Sananduva", estado: "RS", }, };
