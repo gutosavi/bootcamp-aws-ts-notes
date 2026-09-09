@@ -48,17 +48,16 @@ const numeros: Array<unknown> = [
   null,
 ];
 
-const filteredNumbers = (array: Array<unknown>) => {
+const filteredNumbers = (array: unknown[]): number => {
   let soma = 0;
 
   for (let i = 0; i < array.length; i++) {
-    const item = array[i];
+    let item = array[i];
 
     if (!Number.isNaN(item) && typeof item === "number") {
       soma += item;
     }
   }
-
   return soma;
 };
 console.log(filteredNumbers(numeros));

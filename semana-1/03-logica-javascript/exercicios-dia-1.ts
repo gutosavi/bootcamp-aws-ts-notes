@@ -64,7 +64,28 @@ const tabuadaDinamica = (number: number) => {
 };
 tabuadaDinamica(6);
 
+const ehBissexto = () => {
+  let anoAtual = 1000;
+  let anosBissextos = [];
+
+  while (anoAtual < 2026) {
+    anoAtual++;
+
+    if (anoAtual % 4 === 0) {
+      console.log(anoAtual);
+      anosBissextos.push(anoAtual);
+    }
+  }
+  console.log(anosBissextos);
+};
+
 /* Exercicícios práticos - Objetos básicos */
+
+const nomes = ["Pedro", "Paulo", "João"];
+
+for (let i = nomes.length - 1; i >= 0; i--) {
+  console.log(nomes[i]);
+}
 
 type Veiculo = {
   marca: string;

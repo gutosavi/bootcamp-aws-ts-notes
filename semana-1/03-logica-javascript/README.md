@@ -70,3 +70,29 @@ Valores que o JS considera **false** ou **true** quando convertidos para boolean
 | --------- | ----------: |
 | false     |        true |
 | true      |       false |
+
+### Controle de decisão
+
+Estruturas condicionais permitem que o programa tome decisões diferentes de acordo com uma condição.
+
+- **if/else**
+  Usado quando precisamos executar diferentes blocos de código dependendo de uma ou mais condições;
+
+- **switch case**
+  Útil quando precisamos comparar uma mesma expressão com diferentes valores possíveis (Ex.: dias da semana). Lembrar sempre da necessidade de adicionar o break para interromper a execução do switch e também adicionar default ao final, quando nenhum case corresponde ao valor.
+
+### Laçoes de repetição
+
+Laços permitem executar um determinado bloco de código repetidamente enquanto uma condição for atendida ou para percorrer uma sequência de valores.
+
+- **for**
+  Indicado quando sabemos ou conseguimos controlar a quantidade de repetições.
+
+- **while**
+  Executa enquanto a condição for verdadeira. A condição é verificada antes de cada repetição.
+
+- **do...while**
+  Parecido com o while, mas a condição é verificada depois da execução. Portanto, o bloco é executado pelo menos uma vez.
+
+- **for...of**
+  Utilizado principalmente para percorrer valores de estruturas iteráveis, como arrays.
