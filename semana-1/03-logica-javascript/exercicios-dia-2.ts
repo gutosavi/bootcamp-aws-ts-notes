@@ -201,5 +201,62 @@ const detalhesCliente = (pedidos: Carrinho) => {
 
   console.log(`Valor total pedidos: R$ ${soma}`);
 };
-
 detalhesCliente(pedidos);
+
+/* ---- */
+
+type Participante = {
+  nome: string;
+  idade: number;
+  categoria: string;
+  inscrito: boolean;
+};
+
+type Evento = {
+  nome: string;
+  local: string;
+  data: string;
+  participantes: Participante[];
+};
+
+const evento: Evento = {
+  nome: "CodeSummit",
+  local: "São Paulo",
+  data: "28-12-2026",
+  participantes: [
+    { nome: "Gustavo", idade: 38, categoria: "Dev", inscrito: true },
+    { nome: "Pedro", idade: 18, categoria: "Dev", inscrito: false },
+  ],
+};
+
+const mostraEvento = (evento: Evento) => {
+  return `Nome: ${evento.nome} - Local: ${evento.local}`;
+};
+console.log(mostraEvento(evento));
+
+const mostraInscritos = (evento: Evento) => {
+  const inscritos: string[] = [];
+
+  for (const participante of evento.participantes) {
+    if (participante.inscrito) {
+      inscritos.push(participante.nome);
+    }
+  }
+
+  return {
+    inscritosConfirmados: inscritos,
+    quantidadeInscritos: evento.participantes.length,
+  };
+};
+console.log(mostraInscritos(evento));
+
+const alteraStatus = (evento: Evento) => {
+  for (const participante of evento.participantes) {
+    if (participante.nome === "Pedro") {
+      participante.inscrito = true;
+      break;
+    }
+  }
+
+  return evento;
+};
