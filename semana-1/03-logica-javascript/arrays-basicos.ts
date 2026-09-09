@@ -1,3 +1,5 @@
+/* Exercícios propostos pelo professor durante as aulas */
+
 let names = ["João", "Maria", "Gustavo", "Daniel", "Beatriz"];
 
 const showNames = (array: string[], addName: string): void => {

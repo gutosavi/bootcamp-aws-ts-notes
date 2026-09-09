@@ -1,3 +1,5 @@
+/* Exercícios propostos pelo professor durante as aulas */
+
 const validarAcesso = (idade: number): boolean => idade >= 18;
 console.log(validarAcesso(18));
 

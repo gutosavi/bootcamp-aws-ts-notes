@@ -1,4 +1,13 @@
-/* Exercícios práticos - Controle de decisão e Condicionais */
+/* 
+Exercícios práticos extras - dia 1 - Controle de decisão e Condicionais
+
+Conteúdos praticados:
+
+- if/else
+- operadores lógicos
+- for
+- while
+*/
 
 const classificarFaixaEtaria = (idade: number): string => {
   if (idade < 18) {
