@@ -2,7 +2,7 @@
 
 Sprint 1: Fundamentos e Nivelamento
 
-- [ ] Configuração do ambiente e Onboarding
+- [x] Configuração do ambiente e Onboarding
 - [x] Fundamentos do SCRUM Agile & Git/GitHub
 - [ ] Lógica de Programação e Estrutura de Dados com JavaScript
 - [ ] TypeScript do básico ao avançado & Design Patterns
