@@ -83,3 +83,12 @@ const usersByHability = users
   .filter((user) => user.habilidades.includes("TypeScript"))
   .map((user) => user.nome);
 console.log(usersByHability);
+
+// Funções
+
+const calcularPrecoComImposto = (precoBase: number, taxa: number): number => {
+  const taxaEmDecimal = taxa / 100;
+  return precoBase + precoBase * taxaEmDecimal;
+};
+
+console.log(calcularPrecoComImposto(100, 10));
