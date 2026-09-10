@@ -81,7 +81,7 @@ Estruturas condicionais permitem que o programa tome decisões diferentes de aco
 - **switch case**
   Útil quando precisamos comparar uma mesma expressão com diferentes valores possíveis (Ex.: dias da semana). Lembrar sempre da necessidade de adicionar o break para interromper a execução do switch e também adicionar default ao final, quando nenhum case corresponde ao valor.
 
-### Laçoes de repetição
+### Laços de repetição
 
 Laços permitem executar um determinado bloco de código repetidamente enquanto uma condição for atendida ou para percorrer uma sequência de valores.
 
@@ -130,6 +130,21 @@ Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabal
   Objetos podem conter diferentes tipos de dados, inclusive arrays e outros objetos.
   Ex.: const usuario = { nome: "Gustavo", habilidades: ["HTML", "CSS", "JavaScript"], endereco: { cidade: "Sananduva", estado: "RS", }, };
 
-## Funções
+### Funções
 
 É um bloco de código reutilizável que recebe entradas, executa uma lógica e pode produzir uma saída.
+
+**Principais conceitos**
+
+- **Declaração**: definição da função.
+- **Parâmetros**: valores que a função recebe.
+- **Argumentos**: valores passados ao chamar a função.
+- **return**: devolve um resultado e encerra a execução da função.
+- **Valor do retorno**: resultado produzido pela função.
+- **Arrow function**: forma alternativa de declarar funções.
+- **Função sem retorno**: executa uma ação, mas não devolve um valor útil.
+- **Reutilização**: a mesma função pode ser chamada várias vezes com diferentes argumentos.
+- **Escopo**: determina onde variáveis e parâmetros pode ser acessados.
+
+**Conceito principal**
+Entrada -> processamento -> saída
