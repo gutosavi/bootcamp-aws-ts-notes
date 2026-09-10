@@ -86,9 +86,33 @@ console.log(usersByHability);
 
 // Funções
 
+// Função com tipagem e retorno implícito
+
 const calcularPrecoComImposto = (precoBase: number, taxa: number): number => {
   const taxaEmDecimal = taxa / 100;
   return precoBase + precoBase * taxaEmDecimal;
 };
-
 console.log(calcularPrecoComImposto(100, 10));
+
+// Função de validação com Early Return
+
+type Pedido = {
+  id: number;
+  status: "Aprovado" | "Reprovado";
+  itens: string[];
+};
+
+const pedido: Pedido = {
+  id: 10,
+  status: "Aprovado",
+  itens: ["Hamburguer", "Coca-cola"],
+};
+
+const processarPedido = (pedido: Pedido): string => {
+  if (pedido.status !== "Aprovado") {
+    return "Pedido cancelado: Pagamento não aprovado";
+  } else {
+    return `Processando ${pedido.itens.length} item(s) do pedido`;
+  }
+};
+console.log(processarPedido(pedido));
