@@ -64,3 +64,22 @@ const somaMatriz = (matriz: number[][]): number => {
   return soma;
 };
 console.log(somaMatriz(matriz));
+
+// Mapeamento de dados encadeados
+
+interface Users {
+  nome: string;
+  habilidades: string[];
+}
+
+const users: Users[] = [
+  { nome: "Gustavo", habilidades: ["JavaScript", "React", "TypeScript"] },
+  { nome: "Pedro", habilidades: ["JavaScript", "Angular", "Node.js"] },
+  { nome: "João", habilidades: ["JavaScript", "React", "Node.js"] },
+  { nome: "Maria", habilidades: ["JavaScript", "Angular", "TypeScript"] },
+];
+
+const usersByHability = users
+  .filter((user) => user.habilidades.includes("TypeScript"))
+  .map((user) => user.nome);
+console.log(usersByHability);
