@@ -116,3 +116,19 @@ const processarPedido = (pedido: Pedido): string => {
   }
 };
 console.log(processarPedido(pedido));
+
+// Callback básico
+
+const executarOperacao = (
+  n1: number,
+  n2: number,
+  operacao: (a: number, b: number) => number,
+): number => {
+  return operacao(n1, n2);
+};
+
+const somar = (a: number, b: number): number => a + b;
+const multiplicacao = (a: number, b: number) => a * b;
+
+const resultado = executarOperacao(10, 10, multiplicacao);
+console.log(resultado);
