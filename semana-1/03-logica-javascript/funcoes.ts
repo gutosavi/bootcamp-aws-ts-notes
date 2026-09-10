@@ -31,3 +31,33 @@ const calcular = (
   }
 };
 console.log(calcular(10, 10, "/"));
+
+const ehPar = (n: number): boolean => {
+  return n % 2 === 0;
+};
+console.log(ehPar(8));
+
+const ehBissexto = (ano: number): boolean => {
+  return ano % 4 === 0;
+};
+console.log(ehBissexto(2024));
+
+const verificaAnosBissexto = (anoInicial: number) => {
+  const anosBissextos: number[] = [];
+  const dataAtual = new Date().getFullYear();
+  let dataInicio = anoInicial;
+
+  while (dataInicio <= dataAtual) {
+    dataInicio++;
+
+    if (
+      dataInicio % 4 === 0 &&
+      (dataInicio % 100 !== 0 || dataInicio % 400 === 0)
+    ) {
+      anosBissextos.push(dataInicio);
+    }
+  }
+  return anosBissextos;
+};
+
+console.log(verificaAnosBissexto(1900));
