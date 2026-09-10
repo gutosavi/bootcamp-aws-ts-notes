@@ -8,6 +8,8 @@ Conteúdos praticados:
  - funções
  */
 
+// Exercício de filtro usando duas abordagens
+
 interface Estoque {
   nome: string;
   categoria: string;
@@ -40,4 +42,25 @@ const filteredByCategory = (
 // const filteredByCategory = estoque.filter(
 //   (item) => item.categoria === "Eletrônicos",
 // );
+
 console.log(filteredByCategory("Eletrônicos", estoque));
+
+// Soma de Matriz Simples
+
+const matriz = [
+  [10, 20],
+  [30, 40],
+];
+
+const somaMatriz = (matriz: number[][]): number => {
+  let soma = 0;
+
+  for (const linha of matriz) {
+    for (const numero of linha) {
+      soma += numero;
+    }
+  }
+
+  return soma;
+};
+console.log(somaMatriz(matriz));
