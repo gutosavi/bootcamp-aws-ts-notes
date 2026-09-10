@@ -129,3 +129,7 @@ Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabal
 - **Objetos e Estruturas complexas**
   Objetos podem conter diferentes tipos de dados, inclusive arrays e outros objetos.
   Ex.: const usuario = { nome: "Gustavo", habilidades: ["HTML", "CSS", "JavaScript"], endereco: { cidade: "Sananduva", estado: "RS", }, };
+
+## Funções
+
+É um bloco de código reutilizável que recebe entradas, executa uma lógica e pode produzir uma saída.
