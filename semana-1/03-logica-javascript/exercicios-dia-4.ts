@@ -26,7 +26,7 @@ const processarVenda = (produto: Produto, qtd: number): number => {
 try {
   console.log(processarVenda(produto, 1));
 } catch (err) {
-  console.log(err);
+  if (err instanceof Error) console.log(err);
 }
 
 // Relatório de Vendas
@@ -75,7 +75,7 @@ const jogadores: Jogador[] = [
   { nome: "Carla", time: "Beta", pontos: 15 },
 ];
 
-const somarPontuacaoPorTime = (time: string, lista: Jogador[]) => {
+const somarPontuacaoPorTime = (time: Jogador["time"], lista: Jogador[]) => {
   if (lista.length === 0) return 0;
 
   return lista.reduce((acc, jogador) => {
@@ -96,7 +96,11 @@ const numeros = [
 ];
 
 const encontrarMaiorNumeroMatriz = (matriz: number[][]): number => {
-  let maiorNumero = 0;
+  if (!matriz.length || !matriz[0]?.length) {
+    throw new Error("A matriz pode estar vazia");
+  }
+
+  let maiorNumero = matriz[0][0]!; // evitar este operador que esta sendo utilizado
 
   for (const linha of matriz) {
     for (const numero of linha) {
