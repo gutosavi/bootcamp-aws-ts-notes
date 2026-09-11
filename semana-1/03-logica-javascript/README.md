@@ -41,14 +41,14 @@ Valores que o JS considera **false** ou **true** quando convertidos para boolean
 
 ### Operadores de comparação
 
-== Igualdade (apenas valor)
-=== Igualdade (valor e tipo)
-!= Diferente (apenas valor)
-!== Diferente (valor e tipo)
-< Menor que
+== Igualdade (apenas valor)  
+=== Igualdade (valor e tipo)  
+!= Diferente (apenas valor)  
+!== Diferente (valor e tipo)  
+< Menor que  
 <= Menor ou igual à
 
-> Maior que
+> Maior que  
 > = Maior ou igual à
 
 ### Operadores lógicos
@@ -102,7 +102,7 @@ Laços permitem executar um determinado bloco de código repetidamente enquanto 
 Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabalhar com informações.
 
 - **Arrays**
-  São estruturas utilizadas para armazenar uma coleção de valores em uma única variável. Os elementos são organizados por índices, começando pelo 0. (Ex.: const frutas = ['maçã', 'banana', 'laranja'])
+  São estruturas utilizadas para armazenar uma coleção de valores em uma única variável. Os elementos são organizados por índices, começando pelo 0. (Ex.: const frutas = ['maçã', 'banana', 'laranja'])  
   Os elementos podem ser acessados, alterados e adicionados:
   - frutas[1] = 'uva';
   - frutas.push('abacaxi');
@@ -146,8 +146,34 @@ Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabal
 - **Reutilização**: a mesma função pode ser chamada várias vezes com diferentes argumentos.
 - **Escopo**: determina onde variáveis e parâmetros pode ser acessados.
 
-**Conceito principal**
+**Conceito principal**  
 Entrada -> processamento -> saída
+
+**Function Declaration, Function Expression e Arrow Function**
+
+- **Function Declaration**: é a declaração tradicional e usa a palavra-chave function seguida por um nome. Ex.: `function somar(a, b) { return a + b; }`
+  - **Característica**: sofre _hoisting_ completo. Você pode chamar a função no código antes mesmo da linha onde ela foi declarada.
+  - **Quando usar**:
+    - Para criar funções globais ou utilitárias que precisam ficar disponíveis em qualquer parte do arquivo.
+    - Quando você prefere organizar o código chamando as funções principais no topo e definindo-as mais abaixo.
+
+- **Function Expression**: a função é criada como um valor e atribuída a uma variável ou constante. Ex.: `const somar = function(a, b) { return a + b; }`
+  - **Característica**: não sofre _hoisting_ da mesma forma. A variável é registrada, mas o valor da função só existe após a linha da atribuição.
+  - **Quando usar**:
+    - Para limitar onde a função pode ser usada, garantindo mais segurança e controle de escopo.
+    - Quando a função deve existir apenas sob certas condições.
+    - Como argumentos passados para outras funções (callbacks tradicionais).
+
+-- **Arrow Function**: é uma forma mais curta de escrever funções usando a set =>. Ela não usa palavra-chave function e tem retorno implícito quando ocupa apenas uma linha. Ex.: `const somar = (a, b) => a + b`;
+
+- **Característica**: não possui seu próprio `this`. Ela herda o `this` do escopo léxico onde foi criada.
+- **Quando usar**:
+  - Em métodos de array como `.map()`, `.filter()` e `.reduce()`, onde o código fica mais limpo e curto.
+  - Em funções de callback simples.
+  - Quando você precisa preservar o contexto `this` do elemento pai (como dentro de callbacks de classes ou componentes).
+- **Quando NÃO usar**:
+  - Em métodos de objetos que precisam acessar propriedades do próprio objeto usando `this`.
+  - Como funções construturas (não podem ser chamadas com new).
 
 ### Introdução à Programação Orientada a Objetos - POO
 
