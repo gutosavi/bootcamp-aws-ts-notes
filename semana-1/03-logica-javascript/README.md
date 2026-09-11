@@ -148,3 +148,25 @@ Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabal
 
 **Conceito principal**
 Entrada -> processamento -> saída
+
+### Introdução à Programação Orientada a Objetos - POO
+
+É um paradigma de programação que organiza o código utilizando objetos, que agrupam dados (atributos) e ações (métodos) relacionados.
+
+A ideia é representar entidades do sistema e suas responsabilidades, facilitando a **organização, reutilização e manutenção do código**.
+
+**Como funciona?**
+Ao invés de apenas escrever uma lista de comandos, você cria objetos que possuem estado (dados) e comportamentos (ações).
+
+Por exemplo, um objeto Usuário pode ter:
+
+- **Atributo**: nome, e-mail, idade.
+- **Métodos**: fazerLogin(), atualizarEmail(), sair();
+
+**Conceitos básicos**
+
+- **Classe**: É um molde/estrutura que define quais atributos e comportamentos os objetos daquele tipo terão.
+- **Objeto**: É uma instância de uma classe, ou seja, um objeto criado a partir daquele molde.
+- **Atributo**: é um dado ou característica do objeto.
+- **Método**: é uma função que representa um comportamento ou ação do objeto.
+- **Instância**: é o objeto concreto criado a partir de uma classe.
