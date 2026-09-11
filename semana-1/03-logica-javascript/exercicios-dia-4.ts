@@ -87,6 +87,22 @@ const somarPontuacaoPorTime = (time: Jogador["time"], lista: Jogador[]) => {
 };
 console.log(somarPontuacaoPorTime("Beta", jogadores));
 
+// usando loop for
+
+const somarPtsPorTime = (time: Jogador["time"], lista: Jogador[]): number => {
+  if (lista.length === 0) return 0;
+  let pontuaçaoTotalTime = 0;
+
+  for (const jogador of lista) {
+    if (jogador.time === time) {
+      pontuaçaoTotalTime += jogador.pontos;
+    }
+  }
+
+  return pontuaçaoTotalTime;
+};
+console.log(somarPtsPorTime("Alpha", jogadores));
+
 // Transformação de Matriz
 
 const numeros = [
