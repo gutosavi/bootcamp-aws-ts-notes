@@ -18,6 +18,10 @@ class ContaBancaria {
     this.#saldo = saldoInicial;
   }
 
+  get saldo(): number {
+    return this.#saldo;
+  }
+
   depositar(valor: number): void {
     if (valor <= 0) throw new Error("Valor do depósito inválido.");
 
@@ -30,10 +34,6 @@ class ContaBancaria {
 
     this.#saldo -= valor;
     console.log(`Saque efetuado. Novo saldo: ${this.#saldo}`);
-  }
-
-  consultarSaldo(): number {
-    return this.#saldo;
   }
 
   #validarSaldo(valor: number): boolean {
@@ -50,7 +50,7 @@ try {
   if (err instanceof Error) console.error(err.message);
 }
 
-console.log(novaConta.consultarSaldo());
+console.log(novaConta.saldo);
 
 // Herança e Sobrescrita com override
 
