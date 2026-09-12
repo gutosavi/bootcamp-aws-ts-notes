@@ -99,6 +99,7 @@ Laços permitem executar um determinado bloco de código repetidamente enquanto 
 Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabalhar com informações.
 
 - **Arrays**
+
   São estruturas utilizadas para armazenar uma coleção de valores em uma única variável. Os elementos são organizados por índices, começando pelo 0. (Ex.: `const frutas = ['maçã', 'banana', 'laranja']`)  
   Os elementos podem ser acessados, alterados e adicionados:
   - `frutas[1] = 'uva'`;
@@ -114,7 +115,9 @@ Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabal
   Arrays também pode ser percorridos utilizando estruturas de repetição, como for, for...of e métodos específicos de arrays.
 
 - **Objetos**
+
   Objetos são estruturas utilizadas para representar informações através de propriedades formadas por **chave** e **valor**.
+
   Podemos acessar suas propriedades utilizando a notação de ponto ou colchetes:
   - `usuario.nome`;
   - `usuario["idade"]`;
@@ -143,7 +146,8 @@ Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabal
 - **Reutilização**: a mesma função pode ser chamada várias vezes com diferentes argumentos.
 - **Escopo**: determina onde variáveis e parâmetros pode ser acessados.
 
-**Conceito principal**  
+**Conceito principal**
+
 Entrada -> processamento -> saída
 
 **Function Declaration, Function Expression e Arrow Function**
@@ -200,3 +204,22 @@ Por exemplo, um objeto Usuário pode ter:
 - **Abstração**: esconde detalhes desnecessários.
 - **Herança**: reutiliza características de outra classe.
 - **Polimorfismo**: diferentes objetos podem responder de formas diferentes à mesma operação.
+
+**Getters e Setters**
+
+São métodos especiais usados para controlar o acesso e a modificação das propriedades de uma classe.
+
+Eles funcionam como "seguranças na porta da propriedade". O **Getter** intercepta a leitura de um valor e o **Setter** intercepta a atribuição de um novo valor.
+
+**Para que servem**:
+
+- **Validação ao alterar dados (Setter)**: Evita que o objeto receba dados inválidos (ex.: idade negativa, saldo menor que zero).
+- **Campos calculados na leitura (Getter)**: Permite retornar valores derivados sem precisar armazenar uma nova variavel na memória.
+- **Encapsulamento**: Acessa e altera propriedades privadas como se fosse variáveis comuns, mas por baixo dos panos executa uma função com regras.
+
+#### Importante: Métodos vs. Getters & Setters
+
+Ao modelar uma Classe, utilize a seguinte regra para decidir a melhor abordagem:
+
+- **Use Métodos (`minhaFuncao()`)**: Sempre que a regra tratar de uma **Ação ou Operação do Sistema** (verbos como `sacar()`, `depositar()`, `enviarFormulario()`, `autenticar()`). Métodos indicam a execução de um processo que pode envolver múltiplos passos, regras de negócio ou efeitos colaterais.
+- **Use Getters e Setters (`get` / `set`)**: Quando a intenção for **Leitura, Formatação ou Validação Simples de Atributos** (como validar se um valor é positivo, checar maioridade ou formatar um texto antes de retornar). A sintaxe de atribuição (`objeto.propriedade = valor`) deve ser reservada para a gestão do estado do próprio objeto.
