@@ -51,3 +51,66 @@ try {
 }
 
 console.log(novaConta.consultarSaldo());
+
+// Herança e Sobrescrita com override
+
+class Funcionario {
+  constructor(
+    public nome: string,
+    public salarioBase: number,
+  ) {}
+
+  calcularSalario(): number {
+    return this.salarioBase;
+  }
+}
+
+class Gerente extends Funcionario {
+  constructor(
+    nome: string,
+    salarioBase: number,
+    public bonusFixo: number,
+  ) {
+    super(nome, salarioBase);
+  }
+
+  override calcularSalario(): number {
+    return this.salarioBase + this.bonusFixo;
+  }
+}
+
+const funcionario1 = new Funcionario("Carlos", 3000);
+console.log("Funcionário Carlos:", funcionario1.calcularSalario());
+console.log(`--------`);
+const gerente = new Gerente("Daniel", 5000, 1500);
+console.log("Gerente Daniel:", gerente.calcularSalario());
+console.log(`--------`);
+
+// Polimorfismo com interfaces
+
+interface CanalNotificacao {
+  enviar(mensagem: string): void;
+}
+
+class NotificacaoEmail implements CanalNotificacao {
+  enviar(msg: string): void {
+    console.log(`[E-MAIL] enviando: ${msg}`);
+  }
+}
+
+class NotificacaoSMS implements CanalNotificacao {
+  enviar(msg: string): void {
+    console.log(`[SMS] enviando: ${msg}`);
+  }
+}
+
+function dispararMensagem(canais: CanalNotificacao[], mensagem: string): void {
+  return canais.forEach((canal) => canal.enviar(mensagem));
+}
+
+const canaisDeEnvio: CanalNotificacao[] = [
+  new NotificacaoEmail(),
+  new NotificacaoSMS(),
+];
+
+dispararMensagem(canaisDeEnvio, "Este é o polimorfismo em ação.");
