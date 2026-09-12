@@ -1,7 +1,5 @@
 # Anotações teóricas sobre a semana 1
 
----
-
 ## Lógica de Programação e Estrutura de Dados com JavaScript
 
 ### Variáveis e tipos de valores
@@ -23,14 +21,14 @@ Temos 3 formas de atribuir valor a uma variável: **var** (pouco utilizado no JS
 
 ### Tipos de dados
 
-- String (texto)
-- Número (decimal ou inteiro)
-- Boolean (true ou false)
-- null (quando você atribui uma variável como null de forma proposital)
-- undefined (variável que ainda não recebeu um valor)
-- NaN (não é um número)
+- `String` (texto)
+- `Number` (decimal ou inteiro)
+- `Boolean` (true ou false)
+- `null` (quando você atribui uma variável como null de forma proposital)
+- `undefined` (variável que ainda não recebeu um valor)
+- `NaN` (não é um número)
 
-Você pode usar o typeof para saber qual é o tipo do dado.
+Você pode usar o `typeof` para saber qual é o tipo do dado.
 
 ### Valores falsy e truthy
 
@@ -47,9 +45,8 @@ Valores que o JS considera **false** ou **true** quando convertidos para boolean
 !== Diferente (valor e tipo)  
 < Menor que  
 <= Menor ou igual à
-
-> Maior que  
-> = Maior ou igual à
+`> Maior que  
+`>= Maior ou igual à
 
 ### Operadores lógicos
 
@@ -102,33 +99,33 @@ Laços permitem executar um determinado bloco de código repetidamente enquanto 
 Arrays são estruturas de dados utilizadas em JavaScript para organizar e trabalhar com informações.
 
 - **Arrays**
-  São estruturas utilizadas para armazenar uma coleção de valores em uma única variável. Os elementos são organizados por índices, começando pelo 0. (Ex.: const frutas = ['maçã', 'banana', 'laranja'])  
+  São estruturas utilizadas para armazenar uma coleção de valores em uma única variável. Os elementos são organizados por índices, começando pelo 0. (Ex.: `const frutas = ['maçã', 'banana', 'laranja']`)  
   Os elementos podem ser acessados, alterados e adicionados:
-  - frutas[1] = 'uva';
-  - frutas.push('abacaxi');
+  - `frutas[1] = 'uva'`;
+  - `frutas.push('abacaxi')`;
 
   **Métodos básicos**
-  - push() - adiciona um elemento ao final.
-  - pop() - remove o último elemento.
-  - shift() - remove o primeiro elemento.
-  - unshift() - adiciona um elemento no início.
-  - length - informa a quantidade de elementos.
+  - `push()` - adiciona um elemento ao final.
+  - `pop()` - remove o último elemento.
+  - `shift()` - remove o primeiro elemento.
+  - `unshift()` - adiciona um elemento no início.
+  - `length` - informa a quantidade de elementos.
 
   Arrays também pode ser percorridos utilizando estruturas de repetição, como for, for...of e métodos específicos de arrays.
 
 - **Objetos**
   Objetos são estruturas utilizadas para representar informações através de propriedades formadas por **chave** e **valor**.
   Podemos acessar suas propriedades utilizando a notação de ponto ou colchetes:
-  - usuario.nome;
-  - usuario["idade"];
+  - `usuario.nome`;
+  - `usuario["idade"]`;
 
   Também é possível alterar ou adicionar propriedades:
-  usuario.idade = 38;
-  usuario.email = 'gustavo@email.com'
+  `usuario.idade = 38`;
+  `usuario.email = 'gustavo@email.com'`
 
 - **Objetos e Estruturas complexas**
   Objetos podem conter diferentes tipos de dados, inclusive arrays e outros objetos.
-  Ex.: const usuario = { nome: "Gustavo", habilidades: ["HTML", "CSS", "JavaScript"], endereco: { cidade: "Sananduva", estado: "RS", }, };
+  Ex.: `const usuario = { nome: "Gustavo", habilidades: ["HTML", "CSS", "JavaScript"], endereco: { cidade: "Sananduva", estado: "RS", }, };`
 
 ### Funções
 
@@ -164,7 +161,7 @@ Entrada -> processamento -> saída
     - Quando a função deve existir apenas sob certas condições.
     - Como argumentos passados para outras funções (callbacks tradicionais).
 
--- **Arrow Function**: é uma forma mais curta de escrever funções usando a set =>. Ela não usa palavra-chave function e tem retorno implícito quando ocupa apenas uma linha. Ex.: `const somar = (a, b) => a + b`;
+- **Arrow Function**: é uma forma mais curta de escrever funções usando a set =>. Ela não usa palavra-chave function e tem retorno implícito quando ocupa apenas uma linha. Ex.: `const somar = (a, b) => a + b`;
 
 - **Característica**: não possui seu próprio `this`. Ela herda o `this` do escopo léxico onde foi criada.
 - **Quando usar**:
@@ -187,7 +184,7 @@ Ao invés de apenas escrever uma lista de comandos, você cria objetos que possu
 Por exemplo, um objeto Usuário pode ter:
 
 - **Atributo**: nome, e-mail, idade.
-- **Métodos**: fazerLogin(), atualizarEmail(), sair();
+- **Métodos**: `fazerLogin()`, `atualizarEmail()`, `sair()`;
 
 **Conceitos básicos**
 
@@ -196,3 +193,10 @@ Por exemplo, um objeto Usuário pode ter:
 - **Atributo**: é um dado ou característica do objeto.
 - **Método**: é uma função que representa um comportamento ou ação do objeto.
 - **Instância**: é o objeto concreto criado a partir de uma classe.
+
+**4 pilares**:
+
+- **Encapsulamento**: controla o acesso aos dados.
+- **Abstração**: esconde detalhes desnecessários.
+- **Herança**: reutiliza características de outra classe.
+- **Polimorfismo**: diferentes objetos podem responder de formas diferentes à mesma operação.
