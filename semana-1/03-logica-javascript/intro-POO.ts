@@ -95,3 +95,37 @@ class Aluno {
 const novoAluno = new Aluno("Gustavo", "ADS");
 novoAluno.informarNotas(7, 8, 6, 7.5);
 console.log(novoAluno.mostrarInformacoes());
+
+// Usando get e set
+
+class Usuario {
+  #nome: string;
+  #idade: number;
+
+  constructor(nome: string, idade: number) {
+    this.#nome = nome;
+    this.#idade = idade;
+  }
+
+  get nome(): string {
+    return this.#nome.toLowerCase();
+  }
+
+  set idade(novaIdade: number) {
+    if (novaIdade <= 0) {
+      throw new Error("Idade inválida");
+    }
+    this.#idade = novaIdade;
+  }
+
+  get idade(): number {
+    return this.#idade;
+  }
+}
+
+// usando o SETTER a atribuição do valor é direta
+const usuario = new Usuario("Gustavo", 30);
+console.log(usuario.nome);
+console.log(usuario.idade);
+usuario.idade = 38;
+console.log(usuario.idade);
