@@ -166,15 +166,14 @@ Entrada -> processamento -> saída
     - Como argumentos passados para outras funções (callbacks tradicionais).
 
 - **Arrow Function**: é uma forma mais curta de escrever funções usando a set =>. Ela não usa palavra-chave function e tem retorno implícito quando ocupa apenas uma linha. Ex.: `const somar = (a, b) => a + b`;
-
-- **Característica**: não possui seu próprio `this`. Ela herda o `this` do escopo léxico onde foi criada.
-- **Quando usar**:
-  - Em métodos de array como `.map()`, `.filter()` e `.reduce()`, onde o código fica mais limpo e curto.
-  - Em funções de callback simples.
-  - Quando você precisa preservar o contexto `this` do elemento pai (como dentro de callbacks de classes ou componentes).
-- **Quando NÃO usar**:
-  - Em métodos de objetos que precisam acessar propriedades do próprio objeto usando `this`.
-  - Como funções construturas (não podem ser chamadas com new).
+  - **Característica**: não possui seu próprio `this`. Ela herda o `this` do escopo léxico onde foi criada.
+  - **Quando usar**:
+    - Em métodos de array como `.map()`, `.filter()` e `.reduce()`, onde o código fica mais limpo e curto.
+    - Em funções de callback simples.
+    - Quando você precisa preservar o contexto `this` do elemento pai (como dentro de callbacks de classes ou componentes).
+  - **Quando NÃO usar**:
+    - Em métodos de objetos que precisam acessar propriedades do próprio objeto usando `this`.
+    - Como funções construturas (não podem ser chamadas com new).
 
 ### Introdução à Programação Orientada a Objetos - POO
 
