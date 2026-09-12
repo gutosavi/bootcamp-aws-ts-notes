@@ -14,16 +14,16 @@ class Produto {
     this.estoque = estoque;
   }
 
-  comprar(qtd: number) {
+  comprar(qtd: number): number {
     if (qtd > this.estoque)
       throw new Error("Quantidade desejada excede o disponível em estoque.");
     if (qtd < 0) throw new Error("Você deve adicionar uma quantidade.");
 
-    this.estoque -= qtd;
+    this.#removerDoEstoque(qtd);
     return this.estoque;
   }
 
-  adicionar(qtd: number) {
+  adicionar(qtd: number): number {
     if (qtd < 0)
       throw new Error("Quantidade não pode ser menor ou igual a zero.");
 
@@ -31,8 +31,13 @@ class Produto {
     return this.estoque;
   }
 
-  verificaEstoque() {
+  verificaEstoque(): string {
     return `Quantidade em estoque do produto *${this.nome}*: ${this.estoque} unidade(s).`;
+  }
+
+  #removerDoEstoque(qtd: number): void {
+    // função privada - muito utilizado no JS moderno
+    this.estoque -= qtd;
   }
 }
 
@@ -42,7 +47,7 @@ console.log(cadeira);
 // inserido em um bloco try/catch apenas para testar
 try {
   cadeira.adicionar(1);
-  cadeira.comprar(25);
+  cadeira.comprar(8);
 } catch (err) {
   if (err instanceof Error) console.log(err.message);
 }
