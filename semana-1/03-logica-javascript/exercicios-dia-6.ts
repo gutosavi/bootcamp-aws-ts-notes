@@ -71,3 +71,15 @@ try {
 } catch (err) {
   if (err instanceof Error) console.error("Erro capturado:", err.message);
 }
+
+// Algoritmo de array manual
+
+const tarefas = ["Estudar JS", "Fazer exercícios", "Descansar"];
+
+for (let i = 0; i < tarefas.length; i++) {
+  //@ts-ignore
+  tarefas[i] = tarefas[i + 1];
+  //tarefas no índice 0 (inicia 0), vai receber o conteúdo do tarefas do índice 1 (0 + 1) e assim sucessivamente durante o loop
+}
+tarefas.length = tarefas.length - 1;
+console.log(tarefas);
