@@ -22,3 +22,65 @@ for (let i = 0; i < arr2.length; i++) {
 }
 arr2.length = arr2.length - 1; // remove o undefined
 console.log(arr2);
+
+// Pilha (stack) - LIFO (Last In First Out) - Último a entrar, primeiro a sair
+
+class Stack {
+  #stack: string[] = [];
+
+  constructor() {
+    this.#stack = [];
+  }
+
+  // Cópia rasa para não vazar a referência da memória
+  get items(): string[] {
+    return [...this.#stack];
+  }
+
+  get lentgh(): number {
+    return this.#stack.length;
+  }
+
+  get isEmpty(): boolean {
+    return this.#stack.length === 0;
+  }
+
+  // Consulta o topo da pilha (último inserido)
+  peek(): string {
+    if (this.isEmpty) {
+      throw new Error("A pilha está vazia.");
+    }
+
+    return this.#stack[this.#stack.length - 1]!;
+  }
+
+  // Insere no topo
+  push(element: string): void {
+    this.#stack.push(element);
+  }
+
+  // Remove do topo
+  pop(): string {
+    if (this.isEmpty) {
+      throw new Error("A pilha está vazia.");
+    }
+
+    return this.#stack.pop()!;
+  }
+
+  // Esvazia a pilha completamente
+  clear(): void {
+    if (this.isEmpty) throw new Error("A pilha já está vazia");
+
+    this.#stack = [];
+  }
+}
+
+const pilha = new Stack();
+
+pilha.push("Estudar JS");
+pilha.push("Fazer Exercícios");
+
+console.log("Topo da pilha (peek):", pilha.peek());
+console.log("Item removido (pop):", pilha.pop());
+console.log("Itens restantes:", pilha.items);
