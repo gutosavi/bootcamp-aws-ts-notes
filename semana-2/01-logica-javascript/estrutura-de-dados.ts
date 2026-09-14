@@ -7,21 +7,19 @@ for (let i = arr.length; i >= 0; i--) {
   arr[i] = arr[i - 1];
 } // copia o valor do índice [i - 1] para o novo índice (arr[i]) abrindo espaço empurrando todos para a direita.
 arr[0] = 10;
-console.log(arr);
+// console.log(arr);
 
 const arr2 = [1, 2, 3, 4, 5];
 
 // algorítimo para remover item do início
 
 for (let i = 0; i < arr2.length; i++) {
-  console.log(arr2[i]);
   //@ts-ignore
   arr2[i] = arr2[i + 1];
   //traduzindo: arr2[i], receba o conteúdo do arr2[i + 1] / Vaga 1, receba o conteúdo da vaga 2 (1 + 1)
-  console.log(arr2);
 }
 arr2.length = arr2.length - 1; // remove o undefined
-console.log(arr2);
+// console.log(arr2);
 
 // Pilha (stack) - LIFO (Last In First Out) - Último a entrar, primeiro a sair
 
@@ -51,6 +49,10 @@ class Stack {
 
   // Insere no topo
   push(element: string): void {
+    if (!element.trim()) {
+      throw new Error("O elemento não pode ser vazio.");
+    }
+
     if (this.length === this.#limit)
       throw new Error("A pilha atingiu seu limite.");
 
@@ -91,3 +93,75 @@ pilha.push("Fazer Exercícios");
 console.log("Topo da pilha (peek):", pilha.peek());
 console.log("Item removido (pop):", pilha.pop());
 console.log("Itens restantes:", pilha.items);
+
+// Fila (Queue) - FIFO (First In, First Out) - Primeiro a entrar é o primeiro a sair
+
+class Queue {
+  #queue: string[];
+  #limit: number;
+
+  constructor(limit = 10) {
+    if (limit < 1 || limit > 10)
+      throw new Error("O limite deve ser entre 1 e 10.");
+
+    this.#queue = [];
+    this.#limit = limit;
+  }
+
+  get items(): string[] {
+    return [...this.#queue];
+  }
+
+  get isEmpty(): boolean {
+    return this.#queue.length === 0;
+  }
+
+  get length(): number {
+    return this.#queue.length;
+  }
+
+  get limit(): number {
+    return this.#limit;
+  }
+
+  // enfileirar
+  enqueue(element: string) {
+    if (!element.trim()) {
+      throw new Error("O elemento não pode ser vazio.");
+    }
+
+    if (this.length === this.#limit)
+      throw new Error("A fila atingiu seu limite.");
+
+    this.#queue.push(element);
+  }
+
+  // desinfileirar
+  dequeue(): string {
+    if (this.isEmpty) throw new Error("A fila está vazia.");
+
+    return this.#queue.shift()!;
+  }
+
+  // espiar
+  peek(): string {
+    if (this.isEmpty) throw new Error("A fila está vazia.");
+
+    return this.#queue[0]!; // espia o primeiro elemento da fila
+  }
+
+  clear(): void {
+    if (this.isEmpty) throw new Error("A pilha já está vazia");
+
+    this.#queue = [];
+  }
+}
+
+const novaFila = new Queue(3);
+
+novaFila.enqueue("Estudando JS");
+novaFila.enqueue("Estudando TS");
+novaFila.enqueue("Estudando Git");
+console.log("Fila atual:", novaFila.items);
+console.log("Atendido:", novaFila.dequeue());
+console.log("Próximo a ser atendido:", novaFila.peek());
