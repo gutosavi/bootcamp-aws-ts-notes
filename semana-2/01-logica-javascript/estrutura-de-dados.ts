@@ -26,10 +26,14 @@ console.log(arr2);
 // Pilha (stack) - LIFO (Last In First Out) - Último a entrar, primeiro a sair
 
 class Stack {
-  #stack: string[] = [];
+  #stack: string[];
+  #limit: number;
 
-  constructor() {
+  constructor(limit: number) {
+    if (limit && limit <= 0 && limit > 10)
+      throw new Error("O tamanho da pilha deve ser de 1 a 10.");
     this.#stack = [];
+    this.#limit = limit || 10;
   }
 
   // Cópia rasa para não vazar a referência da memória
@@ -37,7 +41,7 @@ class Stack {
     return [...this.#stack];
   }
 
-  get lentgh(): number {
+  get length(): number {
     return this.#stack.length;
   }
 
@@ -45,17 +49,11 @@ class Stack {
     return this.#stack.length === 0;
   }
 
-  // Consulta o topo da pilha (último inserido)
-  peek(): string {
-    if (this.isEmpty) {
-      throw new Error("A pilha está vazia.");
-    }
-
-    return this.#stack[this.#stack.length - 1]!;
-  }
-
   // Insere no topo
   push(element: string): void {
+    if (this.length === this.#limit)
+      throw new Error("A pilha atingiu seu limite.");
+
     this.#stack.push(element);
   }
 
@@ -68,6 +66,15 @@ class Stack {
     return this.#stack.pop()!;
   }
 
+  // Consulta o topo da pilha (último inserido)
+  peek(): string {
+    if (this.isEmpty) {
+      throw new Error("A pilha está vazia.");
+    }
+
+    return this.#stack[this.#stack.length - 1]!;
+  }
+
   // Esvazia a pilha completamente
   clear(): void {
     if (this.isEmpty) throw new Error("A pilha já está vazia");
@@ -76,7 +83,7 @@ class Stack {
   }
 }
 
-const pilha = new Stack();
+const pilha = new Stack(10);
 
 pilha.push("Estudar JS");
 pilha.push("Fazer Exercícios");
