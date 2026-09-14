@@ -42,3 +42,28 @@ O funcionamento é idêntico ao de uma fila do mundo real (como em um banco ou s
 - **Sistemas de impressão**: os documentos são impressos na exata ordem em que foram enviados.
 - **Requisições de servidores**: gerencimento de mensagens e dados que precisam ser processados uma por vez.
 - **Fila de tarefas**: execução ordenada de processos em segundo plano, como envio de e-mails ou processamento de pagamentos.
+
+---
+
+**Vetores vs Listas Ligadas**
+
+**Vetores**
+
+Imagine uma fileira de armários numerados na escola. Quando você cria um vetor de 5 posições, o sistema operacional reserva 5 armários lado a lado, grudados um no outro.
+
+- **Características principais**:
+  - **Acesso instantâneo por índice**: Se você quer o elemento da posição 3, o computador sabe exatamente onde ele está. Isso tem complexidade _O(1)_(tempo constante).
+  - **Inserção/Remoção Custa Caro**: Para inserir ou remover no começo, o computador precisa empurrar todos os elementos vizinho para o lado. Isso exige complexidade _O(n)_(tempo proporcional ao tamanho do vetor).
+  - **Tamanho Fixo ou Custo de Redimensionamento**: No nível de hardware, se o bloco de memória do vetor encher e vocêq uiser adicionar mai sum item, o computador precisa criar um vetor maior em outro lugar e copiar tudo.
+
+**Lista Ligadas (Nodes e Ponteiros Espalhados)**
+
+Lista ligada é como se fosse um caça ao tesouro. Cada pista é um papel (um **Nó** ou _Node_) que contém um valor e traz anotado a localização da próxima pista (um **Ponteiro/Referência**).
+
+- **Estrutura do Nó**:
+  - O **Valor** (o dado armazenado)
+  - O **Ponteiro**(next) (a referência de memória para o próximo _Node_)
+
+- **Características principais**
+  - **Acesso Lento**: Se você quer o 4º elemento de uma Lista Ligada, você não pode simplesmente 'pular' até ele. Você obrigagoriamente precisa começar na **Cabeça (Head)** e ir seguindo as pistas um por um. Isso tem complexidade _O(n)_.
+  - **Inserção/Remoção Super Rápida**: Se você quer inserir um item no início da lista, não precisa mover ninguém! Você só cria um novo _Node_, aponta o **next** dele para o antigo **Head**, e atualiza o **Head**. Isso leva tempo constante _O(1)_.
