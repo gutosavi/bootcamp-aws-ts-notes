@@ -7,6 +7,33 @@ Conteúdos praticados:
 
  */
 
+/* 
+ Pseudocódigo
+ 
+ Guardar as páginas passadas em um pilha 'Voltar';
+ Guardar as páginas futuras em um pilha 'Avançar';
+ Guardar uma string na variável paginaAtual que recebe a página onde está apontado o ponteiro atualmente;
+
+ Inicio:
+  Inicia com uma string, que vai ser recebida pela variável paginaAtual;
+
+  navegarPara recebe uma nova URL;
+    - verifica se o argumento passado é válido;
+    - se sim, a pilha Voltar recebe o valor da página atual;
+    - a variável páginaAtual agora recebe a nova URL.
+    - limpa a pilha Avançar, pois um novo fluxo foi iniciado.
+ 
+  voltar:
+    - verificar se 'podeVoltar' (se existe página na pilha)
+    - pilha Avançar recebe valor do paginaAtual (push)
+    - paginaAtual recebe o valor do topo da pilha Voltar
+
+  avançar:
+    - verificar se 'podeAvançar' (se existe página na pilha)
+    - pilha Voltar recebe o valor da paginaAtual(push)
+    - paginaAtual recebe o valor do topo da pilha Avançar
+ */
+
 class NavigationHistory {
   #stackPrev: string[];
   #stackNext: string[];
