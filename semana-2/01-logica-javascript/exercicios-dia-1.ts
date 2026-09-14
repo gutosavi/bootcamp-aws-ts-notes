@@ -12,22 +12,26 @@ class NavigationHistory {
   #stackNext: string[];
   #currentPage: string;
 
-  constructor(currentData: string) {
+  constructor(initialUrl: string) {
+    if (!initialUrl.trim()) {
+      throw new Error("A URL inicial não pode ser vazia.");
+    }
+
     this.#stackPrev = [];
     this.#stackNext = [];
-    this.#currentPage = currentData;
+    this.#currentPage = initialUrl;
   }
 
   get currentPage(): string {
     return this.#currentPage;
   }
 
-  get isPrevEmpty(): boolean {
-    return this.#stackPrev.length === 0;
+  get canGoBack(): boolean {
+    return this.#stackPrev.length > 0;
   }
 
-  get isNextEmpty(): boolean {
-    return this.#stackNext.length === 0;
+  get canGoForward(): boolean {
+    return this.#stackNext.length > 0;
   }
 
   navTo(newUrl: string): void {
@@ -38,31 +42,41 @@ class NavigationHistory {
     this.#stackNext = []; // limpa a pilha de Avançar, pois um novo fluxo foi iniciado
   }
 
-  prev(): void {
-    if (this.isPrevEmpty) throw new Error("Não há páginas para voltar.");
+  goBack(): string {
+    if (!this.canGoBack) throw new Error("Não há páginas para voltar.");
 
     this.#stackNext.push(this.#currentPage); // adiciona a página atual na stack Avançar
     this.#currentPage = this.#stackPrev.pop()!; // desempilha o topo da pilha Voltar e define como novo data atual
+
+    return this.#currentPage;
   }
 
-  next(): void {
-    if (this.isNextEmpty) throw new Error("Não há páginas para avançar.");
+  goForward(): string {
+    if (!this.canGoForward) throw new Error("Não há páginas para avançar.");
 
     this.#stackPrev.push(this.#currentPage); // a página atual é empilhada na pilha de Voltar
     this.#currentPage = this.#stackNext.pop()!; // a pagina atual recebe o elemento do topo da pilha de avançar
+
+    return this.#currentPage;
   }
 }
 
-const novaNavegacao = new NavigationHistory("home.com");
-console.log("Página iniciada:", novaNavegacao.currentPage);
-novaNavegacao.navTo("github.com");
-novaNavegacao.navTo("notion.so");
-console.log("Status:", novaNavegacao.currentPage);
-novaNavegacao.prev();
-console.log(novaNavegacao.currentPage);
-novaNavegacao.prev();
-console.log(novaNavegacao.currentPage);
-novaNavegacao.next();
-console.log(novaNavegacao.currentPage);
-novaNavegacao.navTo("stackoverflow.com");
-console.log(novaNavegacao.isNextEmpty);
+const historico = new NavigationHistory("home.com");
+
+historico.navTo("github.com");
+historico.navTo("linkedin.com");
+
+console.log("Página atual:", historico.currentPage);
+
+historico.goBack();
+console.log("Voltar:", historico.currentPage);
+
+historico.goBack();
+console.log("Voltar 2x:", historico.currentPage);
+
+historico.goForward();
+console.log("Avançar:", historico.currentPage);
+
+historico.navTo("stackoverflow.com");
+console.log("Nova navegação:", historico.currentPage);
+console.log("Pode avançar:", historico.canGoForward);
