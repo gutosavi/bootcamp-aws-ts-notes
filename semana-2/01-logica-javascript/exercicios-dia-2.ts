@@ -53,3 +53,32 @@ const produtosComDesconto = (produtos: Produto[]): {} => {
 };
 console.log(produtosComDesconto(produtos));
 console.clear();
+
+// Agrupamento com Map
+
+type Transacao = {
+  id: string;
+  categoria: "Alimentação" | "Transporte" | "Lazer";
+  valor: number;
+};
+
+const transacoes: Transacao[] = [
+  { id: "t1", categoria: "Alimentação", valor: 50 },
+  { id: "t2", categoria: "Transporte", valor: 20 },
+  { id: "t3", categoria: "Alimentação", valor: 30 },
+  { id: "t4", categoria: "Lazer", valor: 100 },
+];
+
+const calcularTotalPorCategoria = (
+  transacoes: Transacao[],
+): Map<string, number> => {
+  return transacoes.reduce((acc, item) => {
+    const categoria = item.categoria;
+    const totalAtual = acc.get(categoria) ?? 0;
+
+    acc.set(categoria, totalAtual + item.valor);
+
+    return acc;
+  }, new Map<string, number>());
+};
+console.log(calcularTotalPorCategoria(transacoes));
