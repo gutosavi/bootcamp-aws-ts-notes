@@ -29,7 +29,6 @@ class LinkedList<T> {
     const newNode = new Node(value); // cria um novo nó com o valor
 
     newNode.next = this.#head; // faz o 'próximo' do Nó apontar para o atual 'head'
-
     this.#head = newNode; // Atualiza o 'head' para ser o Nó novo
 
     this.#size++;
@@ -51,8 +50,19 @@ class LinkedList<T> {
     }
 
     current.next = newNode;
-
     this.#size++;
+  }
+
+  toArray(): T[] {
+    const result: T[] = [];
+    let current = this.#head;
+
+    while (current !== null) {
+      result.push(current.value);
+      current = current.next;
+    }
+
+    return result;
   }
 }
 
@@ -71,3 +81,5 @@ lista.insertLast(50);
 lista.insertLast(60);
 console.log("Tamanho:", lista.size);
 console.log("Head:", lista.head?.value);
+
+console.log(lista.toArray());
