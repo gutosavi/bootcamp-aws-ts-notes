@@ -53,6 +53,83 @@ class LinkedList<T> {
     this.#size++;
   }
 
+  insertAt(position: number, value: T): void {
+    if (position >= 0 && position <= this.#size) {
+      if (position === 0) {
+        this.insertFirst(value);
+        return;
+      }
+
+      if (position === this.#size) {
+        this.insertLast(value);
+        return;
+      }
+    }
+
+    const newNode = new Node(value);
+    let current = this.#head;
+    let prev: Node<T> | null = null;
+
+    for (let i = 0; i < position; i++) {
+      prev = current;
+      current = current?.next ?? null;
+    }
+
+    if (!current || !prev) {
+      throw new Error("Não foi possível inserir na posição informada.");
+    }
+
+    newNode.next = current;
+    prev.next = newNode;
+    this.#size++;
+  }
+
+  pop(): T {
+    if (this.isEmpty || !this.#head) {
+      throw new Error("A lista está vazia.");
+    }
+
+    if (this.#size === 1) {
+      const removedValue = this.#head.value;
+      this.#head = null;
+      this.#size = 0;
+      return removedValue;
+    }
+
+    let current = this.#head;
+
+    while (current.next?.next !== null) {
+      current = current.next!;
+    }
+
+    const removedValue = current.next.value;
+
+    current.next = null;
+    this.#size--;
+
+    return removedValue;
+  }
+
+  shift(): T {
+    if (this.isEmpty || !this.#head) {
+      throw new Error("A lista está vazia.");
+    }
+
+    if (this.#size === 1) {
+      const removedValue = this.#head.value;
+      this.#head = null;
+      this.#size = 0;
+      return removedValue;
+    }
+
+    const removedValue = this.#head.value;
+
+    this.#head = this.#head.next;
+    this.#size--;
+
+    return removedValue;
+  }
+
   toArray(): T[] {
     const result: T[] = [];
     let current = this.#head;
@@ -82,4 +159,9 @@ lista.insertLast(60);
 console.log("Tamanho:", lista.size);
 console.log("Head:", lista.head?.value);
 
+lista.insertAt(2, 25);
+console.log(lista.toArray());
+lista.pop();
+console.log(lista.toArray());
+lista.shift();
 console.log(lista.toArray());
