@@ -130,6 +130,40 @@ class LinkedList<T> {
     return removedValue;
   }
 
+  removeAt(position: number): T {
+    if (position >= 0 && position <= this.#size) {
+      if (position === 0) {
+        const removedValue = this.shift();
+        return removedValue;
+      }
+
+      if (position === this.#size) {
+        const removedValue = this.pop();
+        return removedValue;
+      }
+    }
+
+    let current = this.#head;
+    let prev: Node<T> | null = null;
+
+    for (let i = 0; i < position; i++) {
+      prev = current;
+      current = current?.next ?? null;
+    }
+
+    if (!current || !prev) {
+      throw new Error("Não foi possível excluir na posição informada.");
+    }
+
+    const removedValue = current.value;
+
+    prev.next = current?.next;
+    current.next = null;
+    this.#size--;
+
+    return removedValue;
+  }
+
   toArray(): T[] {
     const result: T[] = [];
     let current = this.#head;
@@ -164,4 +198,6 @@ console.log(lista.toArray());
 lista.pop();
 console.log(lista.toArray());
 lista.shift();
+console.log(lista.toArray());
+lista.removeAt(1);
 console.log(lista.toArray());
