@@ -43,12 +43,19 @@ bootcamp-aws-ts-notes/
 
 Sprint 1: Fundamentos e Nivelamento
 
-- [ ] Configuração do ambiente e Onboarding
+- [x] Configuração do ambiente e Onboarding
 - [x] Fundamentos do SCRUM Agile & Git/GitHub
-- [ ] Lógica de Programação e Estrutura de Dados com JavaScript
+- [x] Lógica de Programação e Estrutura de Dados com JavaScript
 - [ ] TypeScript do básico ao avançado & Design Patterns
 - [ ] Arquitetura de Software & Protocolo HTTP
 - [ ] Acreditação Sprint 1
+
+Sprint 2: Desafio, Práticas de Entrevista e Encerramento
+
+- [ ] Início Desafio 1
+- [ ] Entrega Desafio 1
+- [ ] Prática de Entrevista com SM
+- [ ] Encerramento
 
 ---
 
