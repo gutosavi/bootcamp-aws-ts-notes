@@ -131,7 +131,7 @@ class LinkedList<T> {
   }
 
   removeAt(position: number): T {
-    if (position >= 0 && position <= this.#size) {
+    if (position >= 0 && position < this.#size) {
       if (position === 0) {
         const removedValue = this.shift();
         return removedValue;
@@ -162,6 +162,44 @@ class LinkedList<T> {
     this.#size--;
 
     return removedValue;
+  }
+
+  indexOf(value: number): number {
+    if (this.isEmpty || !this.#head) {
+      throw new Error("A lista está vazia.");
+    }
+
+    let current = this.head;
+
+    for (let i = 0; i < this.#size; i++) {
+      if (current?.value === value) {
+        return i;
+      }
+      current = current?.next ?? null;
+    }
+
+    return -1;
+  }
+
+  lastIndexOf(value: T) {
+    if (this.isEmpty || !this.#head) {
+      throw new Error("A lista está vazia.");
+    }
+
+    let indexOf = 0;
+    let lastIndexOf = -1;
+    let current: Node<T> | null = this.#head;
+
+    while (current !== null) {
+      if (current.value === value) {
+        lastIndexOf = indexOf;
+      }
+
+      current = current.next;
+      indexOf++;
+    }
+
+    return lastIndexOf;
   }
 
   toArray(): T[] {
@@ -201,3 +239,5 @@ lista.shift();
 console.log(lista.toArray());
 lista.removeAt(1);
 console.log(lista.toArray());
+console.log("Posição do nó:", lista.indexOf(40));
+console.log("O último índice:", lista.lastIndexOf(40));
