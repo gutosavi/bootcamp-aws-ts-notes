@@ -54,7 +54,7 @@ Imagine uma fileira de armários numerados na escola. Quando você cria um vetor
 - **Características principais**:
   - **Acesso instantâneo por índice**: Se você quer o elemento da posição 3, o computador sabe exatamente onde ele está. Isso tem complexidade _O(1)_(tempo constante).
   - **Inserção/Remoção Custa Caro**: Para inserir ou remover no começo, o computador precisa empurrar todos os elementos vizinho para o lado. Isso exige complexidade _O(n)_(tempo proporcional ao tamanho do vetor).
-  - **Tamanho Fixo ou Custo de Redimensionamento**: No nível de hardware, se o bloco de memória do vetor encher e vocêq uiser adicionar mai sum item, o computador precisa criar um vetor maior em outro lugar e copiar tudo.
+  - **Tamanho Fixo ou Custo de Redimensionamento**: No nível de hardware, se o bloco de memória do vetor encher e você quiser adicionar mais um item, o computador precisa criar um vetor maior em outro lugar e copiar tudo.
 
 **Lista Ligadas (Nodes e Ponteiros Espalhados)**
 
@@ -67,3 +67,18 @@ Lista ligada é como se fosse um caça ao tesouro. Cada pista é um papel (um **
 - **Características principais**
   - **Acesso Lento**: Se você quer o 4º elemento de uma Lista Ligada, você não pode simplesmente 'pular' até ele. Você obrigagoriamente precisa começar na **Cabeça (Head)** e ir seguindo as pistas um por um. Isso tem complexidade _O(n)_.
   - **Inserção/Remoção Super Rápida**: Se você quer inserir um item no início da lista, não precisa mover ninguém! Você só cria um novo _Node_, aponta o **next** dele para o antigo **Head**, e atualiza o **Head**. Isso leva tempo constante _O(1)_.
+
+**Tabelas Hash**
+
+É uma estrtura de dados projetada para uma coisa principal: **encontrar, inserir e remover dados na velocidade da luz**, complexidade média _O(1)_(tempo constante).  
+Se a Lista Ligada é uma caça ao tesouro e o Array é uma fileira de armários, a Tabela Hash é um **fichário perfeito**.
+
+- **Estrutura**
+  - **Chave-Valor(Key-Value)**: Você busca algo usando uma chave legível (ex.: 'cpf', 'usuario_123', 'email'), e ela te devolve o valor associado.
+  - **Função Hash (Hash Function)**: Trata-se de um algoritmo matemático que pega a sua chave (texto) e a converte em um número inteiro (um índice numérico de array).
+
+- **Colisões**  
+  Como o espaço de memória é finito, pode acontecer de duas chaves diferentes gerarem o mesmo índice numérico após passar pela função hash (ex.: 'ana' e 'pedro' gerarem o mesmo índice 5). Isso é chamado de **colisão**.  
+  Para resolver, os sistemas usam duas estratégias principais:
+  - **Encadeamento (Separate Chaining)**: Cada posição do array guarda uma **Lista Ligada**. Se der colisão no índice 5, os elementos são pendurados um atrás do outro nessa lista.
+  - **Endereçamento Aberto (Open Addressing)**: Se o índice 5 estiver ocupado, o sistema procura o próximo espaço vazia no array (índice 6, 7...).
