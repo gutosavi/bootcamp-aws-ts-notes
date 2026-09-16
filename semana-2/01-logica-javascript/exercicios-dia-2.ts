@@ -82,3 +82,65 @@ const calcularTotalPorCategoria = (
   }, new Map<string, number>());
 };
 console.log(calcularTotalPorCategoria(transacoes));
+
+// Histórico com limite de tamanho
+
+class HistoricoBusca {
+  #busca: string[] = [];
+  #maxSize: number;
+
+  constructor(maxSize = 3) {
+    this.#maxSize = maxSize;
+  }
+
+  get isEmpty() {
+    return this.#busca.length === 0;
+  }
+
+  enqueue(element: string): void {
+    if (!element.trim()) {
+      throw new Error("O elemento não pode ser vazio.");
+    }
+
+    this.#busca.push(element);
+  }
+
+  dequeue(): string {
+    if (this.isEmpty) throw new Error("A fila está vazia.");
+
+    return this.#busca.shift()!;
+  }
+
+  adicionarBusca(termo: string): void {
+    if (this.#busca.length === this.#maxSize) {
+      this.dequeue();
+    }
+
+    this.enqueue(termo);
+  }
+
+  obterHistorico(): string[] {
+    if (this.isEmpty) {
+      throw new Error("O histórico de busca está vazio");
+    }
+
+    return [...this.#busca];
+  }
+
+  clear(): void {
+    if (this.isEmpty) {
+      throw new Error("O histórico já está vazio");
+    }
+
+    this.#busca = [];
+  }
+}
+
+const historico = new HistoricoBusca();
+
+historico.adicionarBusca("google.com");
+historico.adicionarBusca("github.com");
+historico.adicionarBusca("stackoverflow.com");
+console.log(historico.obterHistorico());
+historico.adicionarBusca("udemy.com");
+console.log(historico.obterHistorico());
