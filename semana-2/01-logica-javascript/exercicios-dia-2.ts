@@ -93,8 +93,12 @@ class HistoricoBusca {
     this.#maxSize = maxSize;
   }
 
-  get isEmpty() {
+  get isEmpty(): boolean {
     return this.#busca.length === 0;
+  }
+
+  get size(): number {
+    return this.#busca.length;
   }
 
   enqueue(element: string): void {
@@ -102,47 +106,52 @@ class HistoricoBusca {
       throw new Error("O elemento não pode ser vazio.");
     }
 
-    this.#busca.push(element);
+    this.#busca.unshift(element);
   }
 
   dequeue(): string {
     if (this.isEmpty) throw new Error("A fila está vazia.");
 
-    return this.#busca.shift()!;
+    return this.#busca.pop()!;
   }
 
   adicionarBusca(termo: string): void {
-    if (this.#busca.length === this.#maxSize) {
-      this.dequeue();
+    const termoLimpo = termo.trim();
+
+    if (!termoLimpo) {
+      throw new Error("O termo de busca não pode ser vazio.");
+    }
+
+    const indiceExistente = this.#busca.indexOf(termoLimpo);
+    if (indiceExistente !== -1) {
+      this.#busca.splice(indiceExistente, 1);
     }
 
     this.enqueue(termo);
+
+    if (this.size > this.#maxSize) {
+      this.dequeue();
+    }
   }
 
   obterHistorico(): string[] {
-    if (this.isEmpty) {
-      throw new Error("O histórico de busca está vazio");
-    }
-
     return [...this.#busca];
   }
 
   clear(): void {
-    if (this.isEmpty) {
-      throw new Error("O histórico já está vazio");
-    }
-
     this.#busca = [];
   }
 }
 
 const historico = new HistoricoBusca();
 
-historico.adicionarBusca("google.com");
-historico.adicionarBusca("github.com");
-historico.adicionarBusca("stackoverflow.com");
+historico.adicionarBusca("TypeScript");
+historico.adicionarBusca("Next.js");
+historico.adicionarBusca("React");
+
 console.log(historico.obterHistorico());
-historico.adicionarBusca("udemy.com");
+
+historico.adicionarBusca("Tailwind");
 console.log(historico.obterHistorico());
 
 // Buscador com reduce (totalizador)
