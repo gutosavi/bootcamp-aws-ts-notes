@@ -144,3 +144,36 @@ historico.adicionarBusca("stackoverflow.com");
 console.log(historico.obterHistorico());
 historico.adicionarBusca("udemy.com");
 console.log(historico.obterHistorico());
+
+// Buscador com reduce (totalizador)
+
+type ItemCarrinho = {
+  nome: string;
+  preco: number;
+  quantidade: number;
+};
+
+const carrinho: ItemCarrinho[] = [
+  { nome: "Camiseta", preco: 50, quantidade: 2 },
+  { nome: "Calça", preco: 120, quantidade: 1 },
+  { nome: "Meia", preco: 15, quantidade: 3 },
+];
+
+type ItemCarrinhoTotal = ItemCarrinho & { totalAPagar: number };
+
+const totalCarrinho = (
+  carrinho: ItemCarrinho[],
+): Record<string, ItemCarrinhoTotal> => {
+  return carrinho.reduce<Record<string, ItemCarrinhoTotal>>((acc, item) => {
+    const total = item.quantidade * item.preco;
+
+    acc[item.nome] = {
+      ...item,
+      totalAPagar: total,
+    };
+
+    return acc;
+  }, {});
+};
+
+console.log(totalCarrinho(carrinho));
