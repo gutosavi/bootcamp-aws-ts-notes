@@ -28,8 +28,11 @@ export abstract class Personagem {
     this.vida -= forcaAtaque;
   }
 
+  // ao classificar essa função como abstract, eu obrigo as classes filhas a usarem esta função
+
   bordao(): void {
-    console.log(`ATACANDOOO...`);
+    // caso eu não queria classificar como abstract, eu posso retornar algo nessa função e sobrescrever usando override na classe filha
+    console.log("Esta linha será sobrescrita pelas classes filhas");
   }
 }
 
