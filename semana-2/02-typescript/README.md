@@ -23,9 +23,9 @@ No TS, a função principal deles é **definir quem pode ler ou alterar as propr
 
 | Modificador | Acesso fora da Classe? | Acesso em Classes Filhas (Herança) |                                                     Uso Principal |
 | ----------- | ---------------------: | ---------------------------------: | ----------------------------------------------------------------: |
-| public      |                    Sim |                                Sim |                  Padrão do TS. Qualquer um lê e altera livremente |
-| private     |                    Não |                                Não |         Apenas a própria classe enxerga. Protege o estado interno |
-| protected   |                    Não |                                Sim | A própria classe e as herdeiras enxergam, mas o mundo externo não |
+| `public`    |                    Sim |                                Sim |                  Padrão do TS. Qualquer um lê e altera livremente |
+| `private`   |                    Não |                                Não |         Apenas a própria classe enxerga. Protege o estado interno |
+| `protected` |                    Não |                                Sim | A própria classe e as herdeiras enxergam, mas o mundo externo não |
 
 - `public`: Se você não colocar nada antes da propriedade, o TS assume que ela é `public`.
 - `private`: A sua intenção é impedir que o código de fora modifique a propriedade diretamente sem passar por validaçao.
