@@ -39,3 +39,22 @@ São métodos especiais com sintaxe de propriedade que controlam a leitura (`get
 **Método / Atributo `static`**
 
 O modificador `static` indica que a propriedade ou método **pertence à classe em si**, e não às instâncias criadas com `new`. Para criar funções utilitárias ou constantes globais relacionadas àquele contexto que não dependem do estado de objeto específico.
+
+**Classe, métodos e atributos abstratos**
+
+- **Classe abstrata**  
+  Uma classe abstrata é um modelo genérico que não pode ser instanciada. Isso significa que você não consegue criar um objeto diretamente a partir dela (usando `new` por exemplo).  
+  Ela funciona como uma superclasse para organizar e reutilizar códigos comuns entre várias outras classes.
+
+**Exemplo**  
+ Pense na classe genérica `Animal`. Não existe um animal solto que seja eapenas "animal"; ou é um `Cachorro` ou um `Gato`. Logo, `Animal` seria a classe abstrata base.
+
+- **Método abstrato**  
+  Um método abstrato é uma função declarada que não tem corpo nem código de execução na classe pai. Ela possui apenas o nome, os parâmetros e o tipo do retorno.
+  A **regra principal** é se uma classe tem um método abstrato, essa classe é obrigada a ser abstrata. Além disso, qualquer classe filha que herdar essa classe **deve obrigatoriamente implementar** esse método.
+
+**Exemplo**  
+ Na classe `Animal`, o método `fazerBarulho()` pode ser abstrato. A classe filha `Cachorro` vai escrever o código desse som como "Au Au", enquanto a classe `Gato` vai escrever "Miau".
+
+- **Atributo abstrato**  
+  Um dado ou propriedade que a classe filha é obrigada a definir ou possuir para que o sistema funcione corretamente dentro do padrão da classe pai.
