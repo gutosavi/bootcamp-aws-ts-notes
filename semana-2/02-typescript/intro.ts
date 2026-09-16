@@ -1,4 +1,4 @@
-class Empresa {
+export class Empresa {
   public readonly nome: string;
   private readonly colaboradores: Colaborador[] = [];
   protected readonly cnpj: string;
