@@ -85,7 +85,7 @@ console.log(calcularTotalPorCategoria(transacoes));
 
 // Histórico com limite de tamanho
 
-class HistoricoBusca {
+export class HistoricoBusca {
   #busca: string[] = [];
   #maxSize: number;
 
@@ -101,20 +101,6 @@ class HistoricoBusca {
     return this.#busca.length;
   }
 
-  enqueue(element: string): void {
-    if (!element.trim()) {
-      throw new Error("O elemento não pode ser vazio.");
-    }
-
-    this.#busca.unshift(element);
-  }
-
-  dequeue(): string {
-    if (this.isEmpty) throw new Error("A fila está vazia.");
-
-    return this.#busca.pop()!;
-  }
-
   adicionarBusca(termo: string): void {
     const termoLimpo = termo.trim();
 
@@ -122,15 +108,18 @@ class HistoricoBusca {
       throw new Error("O termo de busca não pode ser vazio.");
     }
 
+    // Evita duplicatas, movendo a busca repetida para o topo
     const indiceExistente = this.#busca.indexOf(termoLimpo);
     if (indiceExistente !== -1) {
       this.#busca.splice(indiceExistente, 1);
     }
 
-    this.enqueue(termo);
+    // Insere no início (mais recente)
+    this.#busca.unshift(termoLimpo);
 
-    if (this.size > this.#maxSize) {
-      this.dequeue();
+    // Garante o limite máximo descartando do final (mais antigo)
+    if (this.#busca.length > this.#maxSize) {
+      this.#busca.pop();
     }
   }
 
