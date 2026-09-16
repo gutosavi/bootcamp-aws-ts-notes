@@ -31,3 +31,11 @@ No TS, a função principal deles é **definir quem pode ler ou alterar as propr
 - `private`: A sua intenção é impedir que o código de fora modifique a propriedade diretamente sem passar por validaçao.
 - `protected`: Útil quando você cria uma classe base (ex.: `Veiculo`) e quer que as classes filhas (ex.: `Carro`, `Moto`) usem a propriedade, mas a aplicação de fora não.
 - `readonly`(Apenas leitura): Define que um valor pode ser atribuído apenas na criação da classe (no `constructor`) e nunca mais pode ser alterado.
+
+**Getters e Setters**
+
+São métodos especiais com sintaxe de propriedade que controlam a leitura (`get`) e a escrita (`set`) de atributos privados. Ao invés de expor o atributo `private` diretamente, o `get` permite ler o valor e o `set` permite validar o valor antes de alterar.
+
+**Método / Atributo `static`**
+
+O modificador `static` indica que a propriedade ou método **pertence à classe em si**, e não às instâncias criadas com `new`. Para criar funções utilitárias ou constantes globais relacionadas àquele contexto que não dependem do estado de objeto específico.
