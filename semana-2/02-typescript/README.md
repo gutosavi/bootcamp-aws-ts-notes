@@ -46,15 +46,29 @@ O modificador `static` indica que a propriedade ou método **pertence à classe 
   Uma classe abstrata é um modelo genérico que não pode ser instanciada. Isso significa que você não consegue criar um objeto diretamente a partir dela (usando `new` por exemplo).  
   Ela funciona como uma superclasse para organizar e reutilizar códigos comuns entre várias outras classes.
 
-**Exemplo**  
- Pense na classe genérica `Animal`. Não existe um animal solto que seja eapenas "animal"; ou é um `Cachorro` ou um `Gato`. Logo, `Animal` seria a classe abstrata base.
+  **Exemplo**  
+  Pense na classe genérica `Animal`. Não existe um animal solto que seja apenas "animal"; ou é um `Cachorro` ou um `Gato`. Logo, `Animal` seria a classe abstrata base.
 
 - **Método abstrato**  
   Um método abstrato é uma função declarada que não tem corpo nem código de execução na classe pai. Ela possui apenas o nome, os parâmetros e o tipo do retorno.
   A **regra principal** é se uma classe tem um método abstrato, essa classe é obrigada a ser abstrata. Além disso, qualquer classe filha que herdar essa classe **deve obrigatoriamente implementar** esse método.
 
-**Exemplo**  
- Na classe `Animal`, o método `fazerBarulho()` pode ser abstrato. A classe filha `Cachorro` vai escrever o código desse som como "Au Au", enquanto a classe `Gato` vai escrever "Miau".
+  **Exemplo**  
+  Na classe `Animal`, o método `fazerBarulho()` pode ser abstrato. A classe filha `Cachorro` vai escrever o código desse som como "Au Au", enquanto a classe `Gato` vai escrever "Miau".
 
 - **Atributo abstrato**  
   Um dado ou propriedade que a classe filha é obrigada a definir ou possuir para que o sistema funcione corretamente dentro do padrão da classe pai.
+
+**Tipos de Associação**
+
+- **Associação simples**: Uma classe usa a outra pontualmente, mas elas existem de forma independente.  
+  **Exemplo**  
+  Um `Pedido` que precisa de um `Cliente` para ser finalizado.
+
+- **Agregação (Todo-Parte fraco)**: Um objeto contém outro, mas se o objeto principal deixar de existir, a parte continua existindo sozinha.  
+  **Exemplo**  
+  Um `Carro` tem `Pneus`. Se o carro for desmanchado, os pneus ainda existem.
+
+- **Composição (Todo-Parte Forte)**: Um objeto contém outro, e a parte **não pode existir** sem o todo. Se o objeto principal for destruído, a parte também é.  
+  **Exemplo**  
+  Uma `Casa` tem `Cômodos`. Se a casa é destruída, os cômodos deixam de existir como tal.
