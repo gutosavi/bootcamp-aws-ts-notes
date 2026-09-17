@@ -49,17 +49,16 @@ interface EventoCancelamento {
 type EventoAcao = EventoInscricao | EventoPagamento | EventoCancelamento;
 
 const processarEvento = (evento: EventoAcao): string => {
-  const nomeEventoLimpo = evento.tipo.trim().toLowerCase();
-
-  switch (nomeEventoLimpo) {
-    case "inscricao":
-      return "Inscrição realizada na prova X para o ciclista Y.";
-    case "pagamento":
-      return "Pagamento de R$ X confirmado para ciclista Y.";
-    case "cancelamento":
-      return "Inscrição cancelada. Motivo X.";
+  switch (evento.tipo) {
+    case "INSCRICAO":
+      return `Inscrição realizada na prova ${evento.prova} para o ciclista ID ${evento.idCiclista}.`;
+    case "PAGAMENTO":
+      return `Pagamento de R$ ${evento.valor} confirmado para ciclista ${evento.idCiclista}.`;
+    case "CANCELAMENTO":
+      return `Inscrição cancelada. Motivo ${evento.motivo}.`;
     default:
-      return "[ERRO] - Não foi possível processar.";
+      const _checkExaustivo: never = evento;
+      return _checkExaustivo;
   }
 };
 
@@ -72,30 +71,29 @@ console.log(processarEvento(evento));
 
 // Agregação em Sistema de Notificação (Composisão)
 
-interface CanalNotificação {
+interface CanalNotificacao {
   enviar(mensagem: string): boolean;
 }
 
-export class NotificacaoEmail implements CanalNotificação {
+export class NotificacaoEmail implements CanalNotificacao {
   enviar(mensagem: string): boolean {
     if (!mensagem.trim()) {
       console.log("O campo mensagem não pode estar vazio.");
       return false;
     }
-
-    console.log("Enviando e-mail: ...");
+    console.log(`Enviando e-mail: ${mensagem}`);
     return true;
   }
 }
 
-export class NotificacaoSMS implements CanalNotificação {
+export class NotificacaoSMS implements CanalNotificacao {
   enviar(mensagem: string): boolean {
     if (!mensagem.trim()) {
       console.log("O campo mensagem não pode estar vazio.");
       return false;
     }
 
-    console.log("Enviando SMS: ...");
+    console.log(`Enviando SMS: ${mensagem}`);
     return true;
   }
 }
@@ -104,23 +102,23 @@ type TipoNotificacao = "EMAIL" | "SMS" | "AMBOS";
 
 export class GerenciadorNotificacao {
   constructor(
-    public notificacaoEmail = new NotificacaoEmail(),
-    public notificacaoSMS = new NotificacaoSMS(),
+    public canalEmail: CanalNotificacao = new NotificacaoEmail(),
+    public canalSMS: CanalNotificacao = new NotificacaoSMS(),
   ) {}
 
-  notificar(mensagem: string, tipo: TipoNotificacao) {
+  notificar(mensagem: string, tipo: TipoNotificacao): boolean {
     switch (tipo) {
       case "EMAIL":
-        return this.notificacaoEmail.enviar(mensagem);
+        return this.canalEmail.enviar(mensagem);
       case "SMS":
-        return this.notificacaoSMS.enviar(mensagem);
+        return this.canalSMS.enviar(mensagem);
       case "AMBOS":
-        return (
-          this.notificacaoEmail.enviar(mensagem),
-          this.notificacaoSMS.enviar(mensagem)
-        );
+        const envioEmail = this.canalEmail.enviar(mensagem);
+        const envioSMS = this.canalSMS.enviar(mensagem);
+
+        return envioEmail && envioSMS;
       default:
-        return "Não foi possível fazer a operação.";
+        return false;
     }
   }
 }
