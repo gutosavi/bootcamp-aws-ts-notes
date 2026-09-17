@@ -65,8 +65,10 @@ escritor.escrever();
 escritor.ferramenta = maquina;
 escritor.escrever();
 console.clear();
+
 // Agregação entre classes
 
+// Existe uma relação entre Produto e CarrinhoDeCompras, mas se não existir o carrinho, o Produto ainda pode existir.
 export class CarrinhoDeCompras {
   constructor(private readonly produtos: Produto[] = []) {}
 
@@ -101,3 +103,52 @@ carrinhoDeCompras.inserirProdutos(produto1, produto2, produto3);
 console.log(carrinhoDeCompras);
 console.log(carrinhoDeCompras.valorTotal());
 console.log(carrinhoDeCompras.quantidadeProdutos());
+
+console.clear();
+
+// Composição entre classes
+
+// Nesse caso a relação é forte, não existe carro sem o motor
+export class Motor {
+  ligar() {
+    console.log("Carro está ligado.");
+  }
+
+  acelerar() {
+    console.log("Está acelerando...");
+  }
+
+  parar() {
+    console.log("Carro parou.");
+  }
+
+  desligar() {
+    console.log("Carro desligou.");
+  }
+}
+
+export class Carro {
+  constructor(private readonly motor = new Motor()) {}
+
+  ligar(): void {
+    this.motor.ligar();
+  }
+
+  acelerar(): void {
+    this.motor.acelerar();
+  }
+
+  parar(): void {
+    this.motor.parar();
+  }
+
+  desligar(): void {
+    this.motor.desligar();
+  }
+}
+
+const carro = new Carro();
+carro.ligar();
+carro.acelerar();
+carro.parar();
+carro.desligar();
