@@ -102,8 +102,8 @@ type TipoNotificacao = "EMAIL" | "SMS" | "AMBOS";
 
 export class GerenciadorNotificacao {
   constructor(
-    public canalEmail: CanalNotificacao = new NotificacaoEmail(),
-    public canalSMS: CanalNotificacao = new NotificacaoSMS(),
+    private canalEmail: CanalNotificacao = new NotificacaoEmail(),
+    private canalSMS: CanalNotificacao = new NotificacaoSMS(),
   ) {}
 
   notificar(mensagem: string, tipo: TipoNotificacao): boolean {
