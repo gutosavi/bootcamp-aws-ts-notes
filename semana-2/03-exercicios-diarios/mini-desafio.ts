@@ -93,3 +93,6 @@ const atleta = new Inscricao("01", "Gustavo", 200, "Federado", {
 });
 console.log(`Valor Final: R$ ${atleta.calcularValorFinal()}`);
 console.log(`Novo Status: ${atleta.status}`);
+
+const teste = (true && false) || true;
+console.log(teste);
