@@ -298,6 +298,73 @@ Representa a relação entre diferentes objetos/classes.
 Em termos conceituais, os cômodos fazem parte da existência da casa.  
 Em TypeScript/JavaScript, agregação e composição são conceitos de modelagem. A linguagem não destrói automaticamente os objetos relacionados quando o objeto "todo" deixa de existir.
 
+**constructor, extends e implements**
+
+**`constructor`**
+
+O `constructor` é um método especial executado automaticamente quando uma instância é criada com `new`.
+
+Sua principal função é **inicializar as propriedades do objeto**.
+
+```
+class Usuario {
+  constructor(public nome: string) {}
+}
+
+const usuario = new Usuario('Gustavo');
+
+```
+
+Nesse caso, o `constructor` recebe o nome e inicializa a propriedade nome da nova instância.
+
+**`extends`**
+
+`extends` permite que uma classe **herde atributos e métodos de outra classe**.
+
+```
+class Animal {
+  comer() {
+    console.log('Comendo...');
+  }
+}
+
+class Cachorro extends Animal {
+  latir() {
+    console.log('Au au!');
+  }
+}
+```
+
+`Cachorro` herda `comer()` de `Animal` e também pode possuir seus próprios métodos.
+
+**Em resumo**: `extends` representa uma relação de herança.
+
+**`implements`**
+
+`implements` indica que uma classe deve **seguir o contrato definido por uma interface**.
+
+```
+interface Usuario {
+  nome: string;
+}
+
+class Pessoa implements Usuario {
+  nome: string;
+
+  constructor(nome: string) {
+    this.nome = nome;
+  }
+}
+```
+
+Ao utilizar `implements`, a classe precisa fornecer as propriedades e métodos exigidos pela interface.
+
+**Em resumo**:
+
+- `constructor`: inicializa a instância.
+- `extends`: herda de outra classe.
+- `implements`: segue o contrato da interface.
+
 **Resumo Rápido**
 
 | Conceito         |                           Ideia Principal |
