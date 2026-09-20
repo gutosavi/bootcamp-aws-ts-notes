@@ -298,6 +298,8 @@ Representa a relação entre diferentes objetos/classes.
 Em termos conceituais, os cômodos fazem parte da existência da casa.  
 Em TypeScript/JavaScript, agregação e composição são conceitos de modelagem. A linguagem não destrói automaticamente os objetos relacionados quando o objeto "todo" deixa de existir.
 
+---
+
 **constructor, extends e implements**
 
 **`constructor`**
