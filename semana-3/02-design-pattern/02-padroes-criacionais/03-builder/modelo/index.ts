@@ -15,3 +15,7 @@ console.log(sportCar);
 director.constructTruck();
 const truck = builder.getVehicle();
 console.log(truck);
+
+director.constructMotorcycle();
+const motorcycle = builder.getVehicle();
+console.log(motorcycle);

@@ -1,4 +1,5 @@
 enum VehicleType {
+  MOTO = "MOTO",
   SEDAN = "SEDAN",
   SPORTCAR = "SPORTCART",
   SUV = "SUV",
