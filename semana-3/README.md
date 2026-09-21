@@ -2,6 +2,8 @@
 
 Sprint 2: Desafio, Práticas de Entrevista e Encerramento
 
-- [ ] Arquitetura de Software & Protocolo HTTP
+- [ ] Design Patterns em TS
+- [ ] Arquitetura de Software
+- [ ] Protocolo HTTP
 - [ ] HTML, CSS e Flexbox
 - [ ] Início Desafio 1
