@@ -12,7 +12,7 @@ Assim, a lógica que utiliza o objeto não precisa saber **como ou qual classe c
 
 ## Quando utilizar?
 
-Quando a criação de objetos possui uma lógica ou quando existem diferetnes tipos de objetos que podem ser criados de acordo com a condição ou parâmetro.
+Quando a criação de objetos possui uma lógica ou quando existem diferentes tipos de objetos que podem ser criados de acordo com a condição ou parâmetro.
 
 É especialmente útil quando queremos facilitar a substituição ou expansão dos tipos de objetos criados.
 
