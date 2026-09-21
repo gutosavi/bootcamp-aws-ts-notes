@@ -1,4 +1,4 @@
-import Motorcycle from "../../../../02-factory/modelo/transport/vehicles/Motorcycle.js";
+import Motorcycle from "../../../../02-design-pattern/02-padroes-criacionais/01-factory/modelo/transport/vehicles/Motorcycle.js";
 import Helicopter from "../aerial/Helicopter.js";
 
 import type IAircraft from "../aerial/interfaces/IAircraft.js";

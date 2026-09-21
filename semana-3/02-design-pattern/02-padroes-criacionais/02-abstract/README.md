@@ -15,3 +15,7 @@ Isso ajuda a evitar duplicação e estabelece um contrato para as subclasses.
 Quando existem várias classes que possuem **características e comportamentos em comum**, mas algumas partes precisam ser implementadas de maneira diferente por cada classe.
 
 ## Exemplo
+
+O exemplo desta seção mostra um cenário em que diferentes empresas oferecem os mesmos tipos de serviço de transporte. A aplicação precisa criar os veículos correspondentes a cada empresa, mantendo a compatibilidade entre os objetos.
+
+Como temos diferentes famílias de objetos relacionados, podemos utilizar o Abstract Factory para centralizar a criação desses objetos.
