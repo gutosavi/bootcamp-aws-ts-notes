@@ -13,3 +13,7 @@ Evita construtores com muitos parâmetros ou combinações difíceis de entender
 Quando um objeto possui muitos atributos, opções ou etapas de configuração, especialmente quando nem todos os atributos são obrigatórios.
 
 ## Exemplo
+
+O exemplo da fábrica de carros mostra como o Builder pode ser utilizado para construir diferentes configurações de um mesmo tipo de objeto. O Director define o tipo de veículo e suas características, enquanto o Builder é responsável por executar as etapas de construção e montar o objeto final.
+
+Dessa forma, podemos criar diferentes tipos de carros sem concentrar toda a lógica de construção em um único construtor.
