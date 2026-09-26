@@ -31,8 +31,8 @@ Com **mais de 10 anos de experiência em Gestão**, estou em transição de carr
 bootcamp-aws-ts-notes/
 │
 ├── semana-1/       # SPRINT 1: Git/GitHub, Scrum, Lógica de Programação & JS Fundamental
-├── semana-2/       # Lógica de Programação, JavaScript e TypeScript, Arquitetura de Software, Princípios S.O.L.I.D.
-├── semana-3/       # SPRINT 2: Início do Desafio 1 & Aplicação de AWS
+├── semana-2/       # Lógica de Programação, JavaScript e TypeScript, Princípios S.O.L.I.D.
+├── semana-3/       # SPRINT 2: Início do Desafio 1 & Arquitetura de Software e Design Patterns
 ├── semana-4/       # Finalização do Desafio 1, Prática de Entrevista & Encerramento
 └── README.md       # Documentação principal do repositório
 ```
@@ -51,9 +51,10 @@ Sprint 1: Fundamentos e Nivelamento
 
 Sprint 2: Desafio, Práticas de Entrevista e Encerramento
 
-- [ ] Arquitetura de Software & Protocolo HTTP
+- [x] Design Patterns
+- [x] Arquitetura de Software & Protocolo HTTP
+- [x] Início Desafio 1
 - [ ] HTML, CSS e Flexbox
-- [ ] Início Desafio 1
 - [ ] Entrega Desafio 1
 - [ ] Prática de Entrevista com SM
 - [ ] Encerramento

@@ -1,9 +1,8 @@
 # Guia Geral da Semana 3
 
-Sprint 2: Desafio, Práticas de Entrevista e Encerramento
+Sprint 2: Desafio, Design Patterns, Arquitetura de Software e Protocolo HTTP
 
-- [ ] Design Patterns em TS
-- [ ] Arquitetura de Software
-- [ ] Protocolo HTTP
-- [ ] HTML, CSS e Flexbox
-- [ ] Início Desafio 1
+- [x] Design Patterns em TS
+- [x] Arquitetura de Software
+- [x] Protocolo HTTP
+- [x] Início Desafio 1
