@@ -485,9 +485,44 @@ Exemplos:
 
 # Padrões de Design
 
-## Feature Toggles / Feature Flags
+## Feature Toggle (Feature Flag)
 
-> **A estudar**
+O **Feature Toggle** (ou **Feature Flag**) é uma técnica que permite **ativar ou desativar funcionalidades em produção dinamicamente**, sem a necessidade de realizar um novo _deploy_.
+
+### Como Funciona
+
+A aplicação consulta o estado de uma variável de controle (_Feature Flag_) e, com base no seu valor, decide qual fluxo de execução utilizar.
+
+Exemplo:
+
+```text
+Feature Flag: db_contingencia = false
+
+false → utiliza banco principal
+true  → utiliza banco de contingência
+```
+
+Também pode ser utilizada para alternar entre diferentes versões de uma funcionalidade:
+
+```text
+Feature Flag: nova_funcionalidade = false
+
+false → utiliza V1
+true  → utiliza V2
+```
+
+### Vantagens
+
+- **Rollback rápido:** permite desativar uma funcionalidade com problemas sem depender de um novo _deployment_.
+- **Apoio à refatoração e decomposição:** facilita migrações e mudanças graduais de sistemas, podendo trabalhar em conjunto com o _Strangler Fig Pattern_.
+- **Gestão dinâmica de configurações:** permite alterar determinados comportamentos da aplicação sem modificar diretamente o código ou realizar um novo _deploy_.
+- **Controle de funcionalidades:** possibilita liberar ou ocultar funcionalidades de forma controlada.
+
+### Desafios e Riscos
+
+- **Complexidade na aplicação:** exige mecanismos para consultar e atualizar as _flags_ de forma adequada.
+- **Efeitos colaterais:** alterações aparentemente simples podem produzir comportamentos inesperados se não houver controle e governança.
+- **Acúmulo de flags:** _Feature Flags_ antigas que não são removidas podem aumentar a complexidade e dificultar a manutenção do código.
 
 ---
 
@@ -495,13 +530,82 @@ Exemplos:
 
 ## Blue-Green Deployment
 
-> **A estudar**
+O **Blue-Green Deployment** é uma estratégia de implantação que utiliza **dois ambientes separados e equivalentes**, chamados **Blue** e **Green**, com o objetivo de minimizar o _downtime_ e facilitar o _rollback_.
+
+### Como Funciona
+
+- **Ambientes paralelos:** enquanto o ambiente **Blue** executa a versão atual em produção (V1), o ambiente **Green** recebe e executa a nova versão (V2), sem impacto para os usuários.
+- **Validação:** a nova versão é validada no ambiente Green antes de receber o tráfego de produção.
+- **Virada de tráfego:** após a validação, a camada de rede altera o roteamento e direciona o tráfego para o ambiente Green.
+- **Rollback:** caso algum problema seja identificado, o tráfego pode ser redirecionado novamente para o ambiente Blue.
+
+```text id="9n3s5k"
+              ┌── Blue (V1) ──┐
+Usuários ──→  │               │
+              └── Green (V2) ─┘
+                      ↑
+               novo tráfego
+```
+
+### Vantagens
+
+- **Minimiza o Downtime:** a alternância entre os ambientes reduz a indisponibilidade durante o lançamento.
+- **Rollback rápido:** permite retornar para a versão anterior simplesmente revertendo o direcionamento do tráfego.
+- **Validação antes da liberação:** possibilita testar e validar a nova versão em um ambiente equivalente ao de produção antes de direcionar o tráfego.
+
+### Desafios e Desvantagens
+
+- **Infraestrutura duplicada:** exige dois ambientes, aumentando o consumo de recursos e os custos de infraestrutura.
+- **Sincronização de dados:** exige atenção especial à compatibilidade e sincronização do banco de dados entre as versões.
+- **Aplicações orientadas a eventos:** pode apresentar maior complexidade quando existem consumidores de eventos ou mensagens que não podem simplesmente ser alternados entre ambientes.
 
 ---
 
-## Canary Release
+## Canary Release Deployment
 
-> **A estudar**
+O **Canary Release Deployment** é uma estratégia de implantação na qual uma nova versão é disponibilizada inicialmente para uma **pequena parcela do tráfego**, antes de ser expandida gradualmente para toda a base de usuários.
+
+### Como Funciona
+
+- **Divisão do tráfego:** a camada de rede direciona as requisições entre diferentes versões da aplicação.
+- **Exposição inicial:** uma pequena parcela do tráfego é direcionada para a nova versão (**V2**), enquanto a maioria continua utilizando a versão estável (**V1**).
+
+```text
+              ┌── V1 (80%) ──→ Usuários
+Tráfego ──────┤
+              └── V2 (20%) ──→ Usuários
+```
+
+- **Expansão gradual:** à medida que a V2 demonstra estabilidade e bom desempenho, a porcentagem de tráfego direcionada para ela é aumentada progressivamente.
+- **Conclusão:** quando a V2 estiver validada, todo o tráfego pode ser direcionado para a nova versão.
+
+```text
+V1 80% / V2 20%
+       ↓
+V1 50% / V2 50%
+       ↓
+V1 20% / V2 80%
+       ↓
+V1  0% / V2 100%
+```
+
+### Vantagens
+
+- **Redução de riscos:** limita o impacto de eventuais problemas a uma parcela do tráfego.
+- **Feedback antecipado:** permite observar métricas de comportamento e desempenho antes da liberação completa.
+- **Rollback rápido:** o tráfego pode ser redirecionado para a versão estável caso sejam identificadas falhas.
+- **Teste com carga real:** permite avaliar o comportamento da nova versão utilizando tráfego e requisições reais de produção.
+- **Camada adicional de segurança:** pode reduzir os riscos quando a aplicação possui cobertura limitada de testes automatizados.
+
+### Desafios e Desvantagens
+
+- **Dependência de observabilidade:** exige monitoramento adequado para identificar anomalias e problemas na versão _canary_.
+- **Complexidade de implementação:** pode exigir configurações adicionais na infraestrutura, rede e pipeline de _deployment_.
+- **Compatibilidade entre versões:** exige atenção quando duas versões da aplicação funcionam simultaneamente e compartilham contratos ou dados.
+
+### Importante saber (Blue-Green vs. Canary):
+
+**Uma distinção importante para guardar**: no **Blue-Green**, você normalmente prepara **dois ambientes** e faz uma virada de tráfego; no **Canary**, você mantém as versões simultaneamente atendendo usuários e faz uma **migração gradual do tráfego**.
 
 ---
 
