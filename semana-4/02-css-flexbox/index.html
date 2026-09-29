@@ -4,8 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projeto Integrador - Semana 4</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header class="header">
+      <h1 class="logo">Gustavo.Dev</h1>
+      <nav class="navMenu">
+        <ul>
+          <li><a href="">Inscrições</a></li>
+          <a href="">
+            <li>Sobre</li>
+          </a>
+          <li><a href="">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <article class="card card-evento">
+        <h1>Informações:</h1>
+        <ul>
+          <li>Medalha de participação</li>
+          <li>Troféu</li>
+          <li>Pontos de apoio</li>
+        </ul>
+      </article>
+      <section class="card card-inscricao">
+        <h1>Inscrição</h1\>
+        <div class="categoria">
+          <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+              <option value="">Selecione uma categoria</option>
+              <option value="amador">Amador</option>
+              <option value="federado">Federado</option>
+            </select>
+          <button>Enviar Inscrição</button>
+        </div>
+      </section>
+    </main>
     <script type="module" src="./dist/main.js"></script>
   </body>
 </html>
