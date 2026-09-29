@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projeto Integrador - Semana 4</title>
+    <title>Projeto Integrador - Dashboard Ciclismo</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -11,11 +11,9 @@
       <h1 class="logo">Gustavo.Dev</h1>
       <nav class="navMenu">
         <ul>
-          <li><a href="">Inscrições</a></li>
-          <a href="">
-            <li>Sobre</li>
-          </a>
-          <li><a href="">Contato</a></li>
+          <li><a href="#">Inscrições</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
         </ul>
       </nav>
     </header>
@@ -28,17 +26,19 @@
           <li>Pontos de apoio</li>
         </ul>
       </article>
+
       <section class="card card-inscricao">
         <h1>Inscrição</h1\>
         <div class="categoria">
           <label for="categoria">Categoria</label>
             <select id="categoria" name="categoria">
               <option value="">Selecione uma categoria</option>
-              <option value="amador">Amador</option>
-              <option value="federado">Federado</option>
+              <option value="Amador">Amador</option>
+              <option value="Federado">Federado</option>
             </select>
           <button>Enviar Inscrição</button>
         </div>
+        <div id="resultado" class="resultado"></div>
       </section>
     </main>
     <script type="module" src="./dist/main.js"></script>
