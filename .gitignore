@@ -1,8 +1,23 @@
-# Arquivos compilados do TypeScript
-*.js
-*.js.map
-*.d.ts
-*.d.ts.map
+# Dependências de pacotes
+node_modules/
+.pnpm-store/
+yarn-error.log
+npm-debug.log*
 
-# Exceções 
-!frontend/index.js
+# Pastas de saída da compilação do TypeScript
+dist/
+build/
+out/
+
+# Cache e arquivos do ambiente
+.DS_Store
+.env
+.env.local
+.vscode/*
+!.vscode/settings.json
+
+# Caso tenha compilação de código JS/Map gerado solto nas pastas src
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+src/**/*.d.ts.map
