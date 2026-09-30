@@ -30,9 +30,8 @@
       <section class="card card-inscricao">
         <h1>Inscrição</h1\>
         <div class="categoria">
-          <label>Nome:
+          <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome">
-          </label>
           <label for="categoria">Categoria</label>
             <select id="categoria" name="categoria">
               <option value="">Selecione uma categoria</option>
@@ -41,6 +40,7 @@
             </select>
           <button id="enviar">Enviar Inscrição</button>
         </div>
+        <div id="erro" class="erro"></div>
         <div id="resultado" class="resultado"></div>
       </section>
     </main>

@@ -12,6 +12,7 @@ const inputCategoria = document.getElementById(
   "categoria",
 ) as HTMLSelectElement;
 const resultado = document.getElementById("resultado") as HTMLDivElement;
+const erro = document.getElementById("erro") as HTMLDivElement;
 
 function realizaInscricao(nome: string, categoriaSelecionada: CategoriaAtleta) {
   return new InscricaoAtleta(
@@ -29,6 +30,7 @@ function enviarInscricao() {
     const nome = inputNome.value;
 
     resultado.innerHTML = "";
+    erro.innerHTML = "";
 
     if (!nome || !categoria)
       throw new Error("Os campos devem ser preenchidos.");
@@ -38,13 +40,13 @@ function enviarInscricao() {
     atleta.checkout({ metodo: "PIX", chave: "gustavo@mail.com" });
 
     resultado.innerHTML += `
-      <p>Atleta: ${atleta.nome}</p>
-      <p>Total: ${atleta.total}</p>
-      <p>Status atualizado: ${atleta.status}</p>
+      <p><strong>Atleta:</strong> ${atleta.nome}</p>
+      <p><strong>Total:</strong> ${atleta.total}</p>
+      <p><strong>Status atualizado:</strong> ${atleta.status}</p>
     `;
   } catch (error) {
     if (error instanceof Error) {
-      resultado.innerHTML = `Erro: ${error.message}`;
+      erro.innerHTML = `Erro: ${error.message}`;
       console.error(`ERRO: ${error.message}`);
     }
   }

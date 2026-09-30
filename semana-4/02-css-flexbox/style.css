@@ -115,6 +115,19 @@ body {
   font: 10px;
 }
 
+.resultado {
+  font-size: 0.875rem;
+  font-weight: normal;
+  padding-top: 10px;
+}
+
+.erro {
+  font-size: 0.875rem;
+  font-weight: lighter;
+  padding: 5px 0;
+  color: rgb(245, 38, 1);
+}
+
 button {
   width: 100%;
   margin-top: 15px;
