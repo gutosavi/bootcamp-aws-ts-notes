@@ -2,8 +2,8 @@
 
 Sprint 2: Desafio, HTML, CSS e Flexbox, Práticas de Entrevista e Encerramento
 
-- [ ] Entrega Desafio 1
-- [ ] Desenvolvimento de Sites HTML, CSS e Inteligência Artificial
-- [ ] HTML, CSS e Flexbox
-- [ ] Prática de Entrevista com SM
-- [ ] Encerramento
+- [x] Entrega Desafio 1
+- [x] Desenvolvimento de Sites HTML, CSS e Inteligência Artificial
+- [x] HTML, CSS e Flexbox
+- [x] Prática de Entrevista com SM
+- [x] Encerramento

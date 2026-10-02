@@ -54,10 +54,10 @@ Sprint 2: Desafio, Práticas de Entrevista e Encerramento
 - [x] Design Patterns
 - [x] Arquitetura de Software & Protocolo HTTP
 - [x] Início Desafio 1
-- [ ] HTML, CSS e Flexbox
-- [ ] Entrega Desafio 1
-- [ ] Prática de Entrevista com SM
-- [ ] Encerramento
+- [x] HTML, CSS e Flexbox
+- [x] Entrega Desafio 1
+- [x] Prática de Entrevista com SM
+- [x] Encerramento
 
 ---
 

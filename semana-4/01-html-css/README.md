@@ -37,4 +37,4 @@ Esta pasta reúne anotações, exercícios de fixação e componentes desenvolvi
 
 ## Próximas Etapas no Repositório
 
-- [ ] **CSS Flexbox:** Alinhamentos e distribuição espacial de componentes (1D).
+- [x] **CSS Flexbox:** Alinhamentos e distribuição espacial de componentes (1D).
